@@ -12,272 +12,489 @@
 <header class="topbar">
   <a href="index.html" class="brand"><span>+</span> SmartLab</a>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="tests.html">Manage Tests</a>
-    <a href="reports.html">Reports</a>
+    <a href="index.html" data-lang="Home">Home</a>
+    <a href="tests.html" data-lang="Manage Tests">Manage Tests</a>
+    <a href="reports.html" data-lang="Reports">Reports</a>
   </nav>
+
+  <select id="languageSelect" aria-label="Choose language">
+    <option value="en">English</option>
+    <option value="mr">मराठी</option>
+    <option value="hi">हिन्दी</option>
+  </select>
+
   <button class="outline-btn" onclick="showMessage('Demo laboratory owner profile.')">
-    Lab Profile
+    <span data-lang="Lab Profile">Lab Profile</span>
   </button>
+
   <button type="button" onclick="history.back()">
-  ← Back
-</button>
+    <span data-lang="← Back">← Back</span>
+  </button>
 </header>
 
 <main class="page">
 
   <section class="welcome">
     <div>
-      <p class="eyebrow">LABORATORY MANAGEMENT</p>
-      <h1>Lab Owner Dashboard</h1>
-      <p>Manage bookings, tests, sample collection and reports.</p>
+      <p class="eyebrow" data-lang="LABORATORY MANAGEMENT">LABORATORY MANAGEMENT</p>
+      <h1 data-lang="Lab Owner Dashboard">Lab Owner Dashboard</h1>
+      <p data-lang="Manage bookings, tests, sample collection and reports.">
+        Manage bookings, tests, sample collection and reports.
+      </p>
     </div>
-    <button class="primary-btn" onclick="showMessage('Demo only: Add Test feature will be available on the Manage Tests page.')">
-      + Add New Test
+
+    <button class="primary-btn"
+      onclick="showMessage('Demo only: Add Test feature will be available on the Manage Tests page.')">
+      <span data-lang="+ Add New Test">+ Add New Test</span>
     </button>
   </section>
 
   <section class="panel">
-    <p class="eyebrow">LABORATORY</p>
+    <p class="eyebrow" data-lang="LABORATORY">LABORATORY</p>
     <h2>SmartLab Demo Centre</h2>
-    <p>This is a sample laboratory profile for demonstration.</p>
+    <p data-lang="This is a sample laboratory profile for demonstration.">
+      This is a sample laboratory profile for demonstration.
+    </p>
   </section>
 
   <section class="stats">
     <article class="stat-card">
       <div class="stat-icon">▦</div>
-      <p>Total Bookings</p>
+      <p data-lang="Total Bookings">Total Bookings</p>
       <h2 id="ownerTotalBookings">0</h2>
-      <small>Sample booking count</small>
+      <small data-lang="Sample booking count">Sample booking count</small>
     </article>
 
     <article class="stat-card">
       <div class="stat-icon">◷</div>
-      <p>Pending Samples</p>
+      <p data-lang="Pending Samples">Pending Samples</p>
       <h2 id="ownerPendingSamples">0</h2>
-      <small>Awaiting completion</small>
+      <small data-lang="Awaiting completion">Awaiting completion</small>
     </article>
 
     <article class="stat-card">
       <div class="stat-icon">✓</div>
-      <p>Reports Ready</p>
+      <p data-lang="Reports Ready">Reports Ready</p>
       <h2 id="ownerReportsReady">0</h2>
-      <small>Sample report count</small>
+      <small data-lang="Sample report count">Sample report count</small>
     </article>
   </section>
 
   <section class="panel">
     <div class="section-heading">
       <div>
-        <h2>Recent Test Bookings</h2>
-        <p>Review and update demo booking statuses.</p>
+        <h2 data-lang="Recent Test Bookings">Recent Test Bookings</h2>
+        <p data-lang="Review and update demo booking statuses.">
+          Review and update demo booking statuses.
+        </p>
       </div>
-      <button class="outline-btn" onclick="showMessage('All bookings shown in this demo are sample records.')">
-        View All
+
+      <button class="outline-btn"
+        onclick="showMessage('All bookings shown in this demo are sample records.')">
+        <span data-lang="View All">View All</span>
       </button>
     </div>
 
-    
-<div class="booking-filters">
-  <input
-    type="text"
-    id="bookingSearch"
-    placeholder="Search booking ID, patient or test..."
-  >
+    <div class="booking-filters">
+      <input
+        type="text"
+        id="bookingSearch"
+        placeholder="Search booking ID, patient or test..."
+        data-placeholder="Search booking ID, patient or test..."
+      >
 
-  <select id="bookingStatusFilter">
-    <option value="">All Booking Statuses</option>
-    <option value="Booked">Booked</option>
-    <option value="Sample Collected">Sample Collected</option>
-    <option value="Processing">Processing</option>
-    <option value="Report Ready">Report Ready</option>
-    <option value="Cancelled (Demo)">Cancelled (Demo)</option>
-  </select>
-  
-  
-<label for="bookingDateFilter">Booking Date:</label>
-<input type="date" id="bookingDateFilter">
+      <select id="bookingStatusFilter">
+        <option value="" data-lang="All Booking Statuses">All Booking Statuses</option>
+        <option value="Booked" data-lang="Booked">Booked</option>
+        <option value="Sample Collected" data-lang="Sample Collected">Sample Collected</option>
+        <option value="Processing" data-lang="Processing">Processing</option>
+        <option value="Report Ready" data-lang="Report Ready">Report Ready</option>
+        <option value="Cancelled (Demo)" data-lang="Cancelled (Demo)">Cancelled (Demo)</option>
+      </select>
 
-  <button type="button" id="clearBookingFilters" class="outline-btn">
-    Clear Filters
-  </button>
-</div>
+      <label for="bookingDateFilter" data-lang="Booking Date:">Booking Date:</label>
+      <input type="date" id="bookingDateFilter">
 
+      <button type="button" id="clearBookingFilters" class="outline-btn">
+        <span data-lang="Clear Filters">Clear Filters</span>
+      </button>
+    </div>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Booking ID</th>
-            <th>Patient</th>
-            <th>Test</th>
-            <th>Collection</th>
-            <th>Status</th>
-            <th>Update Status</th>
-            <th>Payment Status</th>
+            <th data-lang="Booking ID">Booking ID</th>
+            <th data-lang="Patient">Patient</th>
+            <th data-lang="Test">Test</th>
+            <th data-lang="Collection">Collection</th>
+            <th data-lang="Status">Status</th>
+            <th data-lang="Update Status">Update Status</th>
+            <th data-lang="Payment Status">Payment Status</th>
           </tr>
         </thead>
+
         <tbody id="ownerBookingRows">
           <tr>
             <td>SL-101</td>
             <td>Demo Patient A</td>
             <td>Complete Blood Count</td>
-            <td>Lab Visit</td>
-            <td><span class="status status-progress">Sample Collected</span></td>
+            <td data-lang="Lab Visit">Lab Visit</td>
+            <td>
+              <span class="status status-progress" data-lang="Sample Collected">
+                Sample Collected
+              </span>
+            </td>
             <td>
               <select class="owner-status" aria-label="Status for booking SL-101">
-                <option>Booked</option>
-                <option selected>Sample Collected</option>
-                <option>Processing</option>
-                <option>Report Ready</option>
+                <option value="Booked" data-lang="Booked">Booked</option>
+                <option value="Sample Collected" selected data-lang="Sample Collected">Sample Collected</option>
+                <option value="Processing" data-lang="Processing">Processing</option>
+                <option value="Report Ready" data-lang="Report Ready">Report Ready</option>
               </select>
             </td>
           </tr>
+
           <tr>
             <td>SL-102</td>
             <td>Demo Patient B</td>
             <td>Blood Glucose</td>
-            <td>Home Collection</td>
-            <td><span class="status status-ready">Report Ready</span></td>
+            <td data-lang="Home Collection">Home Collection</td>
+            <td>
+              <span class="status status-ready" data-lang="Report Ready">
+                Report Ready
+              </span>
+            </td>
             <td>
               <select class="owner-status" aria-label="Status for booking SL-102">
-                <option>Booked</option>
-                <option>Sample Collected</option>
-                <option>Processing</option>
-                <option selected>Report Ready</option>
+                <option value="Booked" data-lang="Booked">Booked</option>
+                <option value="Sample Collected" data-lang="Sample Collected">Sample Collected</option>
+                <option value="Processing" data-lang="Processing">Processing</option>
+                <option value="Report Ready" selected data-lang="Report Ready">Report Ready</option>
               </select>
             </td>
           </tr>
+
           <tr>
             <td>SL-103</td>
             <td>Demo Patient C</td>
             <td>Lipid Profile</td>
-            <td>Home Collection</td>
-            <td><span class="status status-progress">Booked</span></td>
+            <td data-lang="Home Collection">Home Collection</td>
+            <td>
+              <span class="status status-progress" data-lang="Booked">Booked</span>
+            </td>
             <td>
               <select class="owner-status" aria-label="Status for booking SL-103">
-                <option selected>Booked</option>
-                <option>Sample Collected</option>
-                <option>Processing</option>
-                <option>Report Ready</option>
+                <option value="Booked" selected data-lang="Booked">Booked</option>
+                <option value="Sample Collected" data-lang="Sample Collected">Sample Collected</option>
+                <option value="Processing" data-lang="Processing">Processing</option>
+                <option value="Report Ready" data-lang="Report Ready">Report Ready</option>
               </select>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="note">Status changes on this page are for demonstration only.</p>
+
+    <p class="note" data-lang="Status changes on this page are for demonstration only.">
+      Status changes on this page are for demonstration only.
+    </p>
   </section>
 
   <section class="two-columns">
 
     <article class="panel">
-      <h2>Home Collection Staff</h2>
-      <p>Assign a staff member to a demo collection.</p>
+      <h2 data-lang="Home Collection Staff">Home Collection Staff</h2>
+      <p data-lang="Assign a staff member to a demo collection.">
+        Assign a staff member to a demo collection.
+      </p>
 
       <form id="staffForm">
-        <label for="staffBooking">Booking ID</label>
+        <label for="staffBooking" data-lang="Booking ID">Booking ID</label>
         <select id="staffBooking" required>
-          <option value="">Select booking</option>
+          <option value="" data-lang="Select booking">Select booking</option>
           <option value="SL-101">SL-101</option>
           <option value="SL-102">SL-102</option>
           <option value="SL-103">SL-103</option>
         </select>
 
-        <label for="staffMember">Assign Staff</label>
+        <label for="staffMember" data-lang="Assign Staff">Assign Staff</label>
         <select id="staffMember" required>
-          <option value="">Select staff</option>
+          <option value="" data-lang="Select staff">Select staff</option>
           <option>Demo Staff A</option>
           <option>Demo Staff B</option>
           <option>Demo Staff C</option>
         </select>
 
         <button type="submit" class="primary-btn full-btn">
-          Assign Staff
+          <span data-lang="Assign Staff">Assign Staff</span>
         </button>
       </form>
-      <p id="staffMessage" class="form-message" aria-live="polite"></p>
-      
-<h3>Assigned Staff List</h3>
-<div id="staffAssignmentList">
-  <p>No staff assignments yet.</p>
-</div>
 
+      <p id="staffMessage" class="form-message" aria-live="polite"></p>
+
+      <h3 data-lang="Assigned Staff List">Assigned Staff List</h3>
+      <div id="staffAssignmentList">
+        <p data-lang="No staff assignments yet.">No staff assignments yet.</p>
+      </div>
     </article>
 
     <article class="panel">
-      <h2>Upload Demo Report</h2>
-      <p>Select a sample file to preview a demo upload confirmation.</p>
+      <h2 data-lang="Upload Demo Report">Upload Demo Report</h2>
+      <p data-lang="Select a sample file to preview a demo upload confirmation.">
+        Select a sample file to preview a demo upload confirmation.
+      </p>
 
       <form id="reportForm">
-        <label for="reportBooking">Booking ID</label>
+        <label for="reportBooking" data-lang="Booking ID">Booking ID</label>
         <select id="reportBooking" required>
-          <option value="">Select booking</option>
+          <option value="" data-lang="Select booking">Select booking</option>
           <option value="SL-101">SL-101</option>
           <option value="SL-102">SL-102</option>
           <option value="SL-103">SL-103</option>
         </select>
 
-        <label for="reportFile">Choose Report File</label>
+        <label for="reportFile" data-lang="Choose Report File">Choose Report File</label>
         <input id="reportFile" type="file" accept=".pdf,.txt,.jpg,.jpeg,.png" required>
 
         <button type="submit" class="primary-btn full-btn">
-          Upload Demo Report
+          <span data-lang="Upload Demo Report">Upload Demo Report</span>
         </button>
       </form>
+
       <p id="reportMessage" class="form-message" aria-live="polite"></p>
-      <p class="note">Demo only: the selected file will not be uploaded to a server.</p>
+
+      <p class="note" data-lang="Demo only: the selected file will not be uploaded to a server.">
+        Demo only: the selected file will not be uploaded to a server.
+      </p>
     </article>
 
   </section>
 
-  
-<section class="panel">
-  <h2>Daily Business Summary</h2>
-  <p>View patient bookings and payment details for a selected date.</p>
+  <section class="panel">
+    <h2 data-lang="Daily Business Summary">Daily Business Summary</h2>
+    <p data-lang="View patient bookings and payment details for a selected date.">
+      View patient bookings and payment details for a selected date.
+    </p>
 
-  <label for="businessReportDate">Select Date</label>
-  <input type="date" id="businessReportDate">
+    <label for="businessReportDate" data-lang="Select Date">Select Date</label>
+    <input type="date" id="businessReportDate">
 
-  <div class="stats">
-    <article class="stat-card">
-      <p>Total Patients</p>
-      <h2 id="dailyPatients">0</h2>
-    </article>
+    <div class="stats">
+      <article class="stat-card">
+        <p data-lang="Total Patients">Total Patients</p>
+        <h2 id="dailyPatients">0</h2>
+      </article>
 
-    <article class="stat-card">
-      <p>Total Bookings</p>
-      <h2 id="dailyBookings">0</h2>
-    </article>
+      <article class="stat-card">
+        <p data-lang="Total Bookings">Total Bookings</p>
+        <h2 id="dailyBookings">0</h2>
+      </article>
 
-    <article class="stat-card">
-      <p>Payments Received</p>
-      <h2 id="dailyReceived">₹0</h2>
-    </article>
+      <article class="stat-card">
+        <p data-lang="Payments Received">Payments Received</p>
+        <h2 id="dailyReceived">₹0</h2>
+      </article>
 
-    <article class="stat-card">
-      <p>Pending Payments</p>
-      <h2 id="dailyPending">₹0</h2>
-    </article>
-  </div>
+      <article class="stat-card">
+        <p data-lang="Pending Payments">Pending Payments</p>
+        <h2 id="dailyPending">₹0</h2>
+      </article>
+    </div>
 
-  <p id="dailyReportMessage" class="note" aria-live="polite"></p>
-</section>
-
+    <p id="dailyReportMessage" class="note" aria-live="polite"></p>
+  </section>
 
   <p class="disclaimer">
-    <strong>Demo notice:</strong> All names, bookings, counts and financial
-    figures are fictional examples. This prototype does not process real
-    patient information, publish medical reports or manage actual laboratory work.
+    <strong data-lang="Demo notice:">Demo notice:</strong>
+    <span data-lang="All names, bookings, counts and financial figures are fictional examples.">
+      All names, bookings, counts and financial figures are fictional examples.
+    </span>
+    <span data-lang="This prototype does not process real patient information, publish medical reports or manage actual laboratory work.">
+      This prototype does not process real patient information, publish medical reports or manage actual laboratory work.
+    </span>
   </p>
 
 </main>
 
 <footer>
-  <p>© 2026 SmartLab · Demo Prototype</p>
-  <a href="index.html">Home</a>
+  <p>© 2026 SmartLab · <span data-lang="Demo Prototype">Demo Prototype</span></p>
+  <a href="index.html" data-lang="Home">Home</a>
 </footer>
 
 <script src="dashboard.js"></script>
+
+<script>
+const labTranslations = {
+  en: {},
+  mr: {
+    "Home":"मुख्यपृष्ठ",
+    "Manage Tests":"चाचण्या व्यवस्थापित करा",
+    "Reports":"रिपोर्ट्स",
+    "Lab Profile":"लॅब प्रोफाइल",
+    "← Back":"← मागे",
+    "LABORATORY MANAGEMENT":"प्रयोगशाळा व्यवस्थापन",
+    "Lab Owner Dashboard":"लॅब मालक डॅशबोर्ड",
+    "Manage bookings, tests, sample collection and reports.":"बुकिंग, चाचण्या, नमुना संकलन आणि रिपोर्ट्स व्यवस्थापित करा.",
+    "+ Add New Test":"+ नवीन चाचणी जोडा",
+    "LABORATORY":"प्रयोगशाळा",
+    "This is a sample laboratory profile for demonstration.":"हे प्रात्यक्षिकासाठी तयार केलेले नमुना प्रयोगशाळा प्रोफाइल आहे.",
+    "Total Bookings":"एकूण बुकिंग",
+    "Sample booking count":"नमुना बुकिंग संख्या",
+    "Pending Samples":"प्रलंबित नमुने",
+    "Awaiting completion":"पूर्ण होण्याची प्रतीक्षा",
+    "Reports Ready":"रिपोर्ट्स तयार",
+    "Sample report count":"नमुना रिपोर्ट संख्या",
+    "Recent Test Bookings":"अलीकडील चाचणी बुकिंग",
+    "Review and update demo booking statuses.":"डेमो बुकिंगची स्थिती तपासा आणि अपडेट करा.",
+    "View All":"सर्व पहा",
+    "All Booking Statuses":"सर्व बुकिंग स्थिती",
+    "Booked":"बुक झाले",
+    "Sample Collected":"नमुना गोळा केला",
+    "Processing":"प्रक्रिया सुरू",
+    "Report Ready":"रिपोर्ट तयार",
+    "Cancelled (Demo)":"रद्द (डेमो)",
+    "Booking Date:":"बुकिंग तारीख:",
+    "Clear Filters":"फिल्टर काढा",
+    "Booking ID":"बुकिंग आयडी",
+    "Patient":"रुग्ण",
+    "Test":"चाचणी",
+    "Collection":"संकलन",
+    "Status":"स्थिती",
+    "Update Status":"स्थिती अपडेट करा",
+    "Payment Status":"पेमेंट स्थिती",
+    "Lab Visit":"प्रयोगशाळेत भेट",
+    "Home Collection":"घरी नमुना संकलन",
+    "Status changes on this page are for demonstration only.":"या पृष्ठावरील स्थितीतील बदल केवळ प्रात्यक्षिकासाठी आहेत.",
+    "Home Collection Staff":"घरी नमुना संकलन कर्मचारी",
+    "Assign a staff member to a demo collection.":"डेमो नमुना संकलनासाठी कर्मचारी नेमा.",
+    "Assign Staff":"कर्मचारी नेमा",
+    "Select booking":"बुकिंग निवडा",
+    "Select staff":"कर्मचारी निवडा",
+    "Assigned Staff List":"नेमलेल्या कर्मचाऱ्यांची यादी",
+    "No staff assignments yet.":"अद्याप कोणताही कर्मचारी नेमलेला नाही.",
+    "Upload Demo Report":"डेमो रिपोर्ट अपलोड करा",
+    "Select a sample file to preview a demo upload confirmation.":"डेमो अपलोडची पुष्टी पाहण्यासाठी नमुना फाइल निवडा.",
+    "Choose Report File":"रिपोर्ट फाइल निवडा",
+    "Demo only: the selected file will not be uploaded to a server.":"फक्त डेमो: निवडलेली फाइल सर्व्हरवर अपलोड होणार नाही.",
+    "Daily Business Summary":"दैनंदिन व्यवसायाचा सारांश",
+    "View patient bookings and payment details for a selected date.":"निवडलेल्या तारखेतील रुग्ण बुकिंग आणि पेमेंटचा तपशील पहा.",
+    "Select Date":"तारीख निवडा",
+    "Total Patients":"एकूण रुग्ण",
+    "Payments Received":"मिळालेले पेमेंट",
+    "Pending Payments":"प्रलंबित पेमेंट",
+    "Demo notice:":"डेमो सूचना:",
+    "All names, bookings, counts and financial figures are fictional examples.":"सर्व नावे, बुकिंग आणि आर्थिक आकडे काल्पनिक आहेत.",
+    "This prototype does not process real patient information, publish medical reports or manage actual laboratory work.":"हे प्रोटोटाइप वास्तविक रुग्णांची माहिती हाताळत नाही किंवा खरे रिपोर्ट प्रकाशित करत नाही.",
+    "Demo Prototype":"डेमो प्रोटोटाइप",
+    "Search booking ID, patient or test...":"बुकिंग आयडी, रुग्ण किंवा चाचणी शोधा..."
+  },
+  hi: {
+    "Home":"होम",
+    "Manage Tests":"जाँच प्रबंधित करें",
+    "Reports":"रिपोर्ट",
+    "Lab Profile":"लैब प्रोफ़ाइल",
+    "← Back":"← वापस",
+    "LABORATORY MANAGEMENT":"प्रयोगशाला प्रबंधन",
+    "Lab Owner Dashboard":"लैब मालिक डैशबोर्ड",
+    "Manage bookings, tests, sample collection and reports.":"बुकिंग, जाँच, नमूना संग्रह और रिपोर्ट प्रबंधित करें।",
+    "+ Add New Test":"+ नई जाँच जोड़ें",
+    "LABORATORY":"प्रयोगशाला",
+    "This is a sample laboratory profile for demonstration.":"यह प्रदर्शन के लिए एक नमूना प्रयोगशाला प्रोफ़ाइल है।",
+    "Total Bookings":"कुल बुकिंग",
+    "Sample booking count":"नमूना बुकिंग संख्या",
+    "Pending Samples":"लंबित नमूने",
+    "Awaiting completion":"पूरा होने की प्रतीक्षा",
+    "Reports Ready":"रिपोर्ट तैयार",
+    "Sample report count":"नमूना रिपोर्ट संख्या",
+    "Recent Test Bookings":"हाल की जाँच बुकिंग",
+    "Review and update demo booking statuses.":"डेमो बुकिंग की स्थिति देखें और अपडेट करें।",
+    "View All":"सभी देखें",
+    "All Booking Statuses":"सभी बुकिंग स्थितियाँ",
+    "Booked":"बुक किया गया",
+    "Sample Collected":"नमूना एकत्र किया गया",
+    "Processing":"प्रक्रिया जारी",
+    "Report Ready":"रिपोर्ट तैयार",
+    "Cancelled (Demo)":"रद्द (डेमो)",
+    "Booking Date:":"बुकिंग तारीख:",
+    "Clear Filters":"फ़िल्टर हटाएँ",
+    "Booking ID":"बुकिंग आईडी",
+    "Patient":"रोगी",
+    "Test":"जाँच",
+    "Collection":"संग्रह",
+    "Status":"स्थिति",
+    "Update Status":"स्थिति अपडेट करें",
+    "Payment Status":"भुगतान स्थिति",
+    "Lab Visit":"प्रयोगशाला में जाएँ",
+    "Home Collection":"घर से नमूना संग्रह",
+    "Status changes on this page are for demonstration only.":"इस पेज पर स्थिति में बदलाव केवल प्रदर्शन के लिए हैं।",
+    "Home Collection Staff":"घर से नमूना संग्रह कर्मचारी",
+    "Assign a staff member to a demo collection.":"डेमो नमूना संग्रह के लिए कर्मचारी नियुक्त करें।",
+    "Assign Staff":"कर्मचारी नियुक्त करें",
+    "Select booking":"बुकिंग चुनें",
+    "Select staff":"कर्मचारी चुनें",
+    "Assigned Staff List":"नियुक्त कर्मचारियों की सूची",
+    "No staff assignments yet.":"अभी तक कोई कर्मचारी नियुक्त नहीं है।",
+    "Upload Demo Report":"डेमो रिपोर्ट अपलोड करें",
+    "Select a sample file to preview a demo upload confirmation.":"डेमो अपलोड की पुष्टि देखने के लिए नमूना फ़ाइल चुनें।",
+    "Choose Report File":"रिपोर्ट फ़ाइल चुनें",
+    "Demo only: the selected file will not be uploaded to a server.":"केवल डेमो: चुनी गई फ़ाइल सर्वर पर अपलोड नहीं होगी।",
+    "Daily Business Summary":"दैनिक व्यवसाय सारांश",
+    "View patient bookings and payment details for a selected date.":"चुनी गई तारीख की रोगी बुकिंग और भुगतान का विवरण देखें।",
+    "Select Date":"तारीख चुनें",
+    "Total Patients":"कुल रोगी",
+    "Payments Received":"प्राप्त भुगतान",
+    "Pending Payments":"लंबित भुगतान",
+    "Demo notice:":"डेमो सूचना:",
+    "All names, bookings, counts and financial figures are fictional examples.":"सभी नाम, बुकिंग और वित्तीय आँकड़े काल्पनिक हैं।",
+    "This prototype does not process real patient information, publish medical reports or manage actual laboratory work.":"यह प्रोटोटाइप वास्तविक रोगी जानकारी या वास्तविक लैब कार्य नहीं संभालता।",
+    "Demo Prototype":"डेमो प्रोटोटाइप",
+    "Search booking ID, patient or test...":"बुकिंग आईडी, रोगी या जाँच खोजें..."
+  }
+};
+
+const languageSelect = document.getElementById("languageSelect");
+const translatableElements = document.querySelectorAll("[data-lang]");
+
+translatableElements.forEach(element => {
+  element.dataset.originalText = element.textContent.trim();
+});
+
+document.querySelectorAll("[data-placeholder]").forEach(element => {
+  element.dataset.originalPlaceholder = element.placeholder;
+});
+
+function changeLabLanguage(language) {
+  const selectedLanguage = labTranslations[language] ? language : "en";
+
+  document.documentElement.lang = selectedLanguage;
+  localStorage.setItem("smartlab-language", selectedLanguage);
+
+  translatableElements.forEach(element => {
+    const original = element.dataset.originalText;
+    element.textContent =
+      selectedLanguage === "en"
+        ? original
+        : (labTranslations[selectedLanguage][original] || original);
+  });
+
+  document.querySelectorAll("[data-placeholder]").forEach(element => {
+    const original = element.dataset.originalPlaceholder;
+    element.placeholder =
+      selectedLanguage === "en"
+        ? original
+        : (labTranslations[selectedLanguage][original] || original);
+  });
+
+  languageSelect.value = selectedLanguage;
+}
+
+languageSelect.addEventListener("change", function () {
+  changeLabLanguage(this.value);
+});
+
+changeLabLanguage(localStorage.getItem("smartlab-language") || "en");
+</script>
+
 </body>
 </html>

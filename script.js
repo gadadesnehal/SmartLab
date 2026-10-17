@@ -282,11 +282,28 @@ function changeLanguage(language) {
   }
 }
 
-if (languageSelect) {
-  languageSelect.addEventListener("change", (event) => {
-    changeLanguage(event.target.value);
-  });
+const languageSelect = document.getElementById("languageSelect");
 
+if (languageSelect) {
+  languageSelect.onchange = function () {
+    changeLanguage(this.value);
+  };
+
+  let initialLanguage = "en";
+
+  try {
+    const savedLanguage = localStorage.getItem("smartlab-language");
+
+    if (savedLanguage && translations[savedLanguage]) {
+      initialLanguage = savedLanguage;
+    }
+  } catch (error) {
+    // Use English as default
+  }
+
+  languageSelect.value = initialLanguage;
+  changeLanguage(initialLanguage);
+}
   let initialLanguage = "en";
 
   try {

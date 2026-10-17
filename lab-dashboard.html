@@ -484,9 +484,13 @@ function changeLabLanguage(language) {
   languageSelect.value = selectedLanguage;
 }
 
-languageSelect.addEventListener("change", function () {
-  changeLabLanguage(this.value);
-});
+  const languageSelect = document.getElementById("languageSelect");
+
+if (languageSelect) {
+  languageSelect.addEventListener("change", function () {
+    changeLabLanguage(this.value);
+  });
+}
 
 changeLabLanguage(localStorage.getItem("smartlab-language") || "en");
 </script>

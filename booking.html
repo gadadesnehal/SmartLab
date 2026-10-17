@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,65 +15,61 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f8fc;
+      background: #EEF4FF !important;
       color: #243247;
     }
 
-header {
-  display: grid !important;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  align-items: center;
-  gap: 12px 20px;
-  background: #FFFFFF !important;
-}
+    /* Header: SmartLab left, navigation and Back button right */
+    header {
+      display: grid !important;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      align-items: center;
+      gap: 12px 20px;
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #DCE5F0 !important;
+    }
 
-header .brand {
-  grid-column: 1;
-  grid-row: 1 / 3;
-  color: #0B1F3A !important;
-}
+    header .brand {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      color: #0B1F3A !important;
+      margin-right: auto;
+    }
 
-header nav {
-  grid-column: 2;
-  grid-row: 1;
-  width: auto !important;
-  margin: 0 !important;
-  justify-content: flex-end;
-}
+    header nav {
+      grid-column: 2;
+      grid-row: 1;
+      display: flex !important;
+      align-items: center;
+      justify-content: flex-end !important;
+      gap: 15px !important;
+      flex-wrap: wrap;
+      width: auto !important;
+      margin: 0 !important;
+    }
 
-header nav .language-select {
-  display: none !important;
-}
+    header nav .language-select {
+      display: none !important;
+    }
 
-header > .back-btn {
-  grid-column: 2;
-  grid-row: 2;
-  justify-self: end;
-  background: #EAF2FC;
-  color: #0B1F3A;
-  border: 1px solid #D1E1F5;
-  border-radius: 25px;
-  padding: 12px 24px;
-  cursor: pointer;
-}
+    header > .back-btn {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: end;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      margin: 0 !important;
+      background: #EAF2FC !important;
+      color: #0B1F3A !important;
+      border: 1px solid #D1E1F5 !important;
+      border-radius: 25px;
+      padding: 12px 24px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
 
-body {
-  background: #EEF4FF !important;
-}
-
-@media (max-width: 760px) {
-  header {
-    grid-template-columns: 1fr auto;
-  }
-
-  header nav {
-    flex-wrap: wrap;
-  }
-}
-
-
- 
     nav {
       display: flex;
       align-items: center;
@@ -119,7 +116,7 @@ body {
       line-height: 1.6;
     }
 
-    /* Book Test layout */
+    /* Existing Book Test layout - unchanged */
     .booking-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
@@ -139,7 +136,7 @@ body {
     }
 
     .card {
-      background: white;
+      background: #FFFFFF !important;
       border: 1px solid #e3e9f2;
       border-radius: 12px;
       padding: 24px;
@@ -255,73 +252,17 @@ body {
       }
 
       header {
-        align-items: flex-start;
+        align-items: start;
       }
 
-      nav {
-        width: 100%;
+      header nav {
+        width: auto !important;
       }
 
       .card {
         padding: 18px;
       }
     }
-    /* Header background white */
-header {
-  background: #FFFFFF !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-wrap: wrap !important;
-  border-bottom: 1px solid #DCE5F0 !important;
-}
-
-/* SmartLab text dark navy blue */
-header .brand {
-  color: #0B1F3A !important;
-  flex-shrink: 0 !important;
-}
-
-/* Navigation and Back button on the right */
-header nav {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: 15px !important;
-  margin-left: auto !important;
-  width: auto !important;
-}
-
-header nav a {
-  color: #203C61 !important;
-}
-
-/* Back button */
-header nav .back-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 !important;
-  background: #EAF2FC !important;
-  color: #0B1F3A !important;
-  border: 1px solid #D1E1F5 !important;
-  border-radius: 25px !important;
-  padding: 12px 22px !important;
-  cursor: pointer;
-}
-
-/* Light blue background below the header */
-body {
-  background: #EEF4FF !important;
-  color: #243247;
-}
-
-/* Booking cards remain white */
-.card {
-  background: #FFFFFF !important;
-}
   </style>
 </head>
 
@@ -341,9 +282,10 @@ body {
       <option value="hi">हिन्दी</option>
     </select>
   </nav>
+
   <button class="back-btn" onclick="history.back()">
-  ← Back
-</button>
+    ← Back
+  </button>
 </header>
 
 <main class="page">

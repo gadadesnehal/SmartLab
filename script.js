@@ -242,6 +242,7 @@ const translations = {
 };
 
 const languageSelect = document.getElementById("languageSelect");
+console.log("Language dropdown:", languageSelect);
 
 function changeLanguage(language) {
   const dictionary = translations[language];

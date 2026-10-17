@@ -1,19 +1,26 @@
 
-/* SmartLab Dashboard - Denim Blue Theme */
+/* SmartLab Dashboard - Dark Blue Theme */
 
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --primary-light: #eff6ff;
-  --text: #172b4d;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --background: #f6f8fc;
-  --white: #ffffff;
-  --green: #15803d;
-  --green-bg: #dcfce7;
-  --orange: #b45309;
-  --orange-bg: #fef3c7;
+  --primary: #19436B;
+  --primary-dark: #102F50;
+  --primary-light: #EAF2FC;
+  --text: #15395D;
+  --muted: #647B94;
+  --border: #D5E2F2;
+  --background: #EFF5FF;
+  --white: #FFFFFF;
+  --green: #15803D;
+  --green-bg: #DCFCE7;
+  --orange: #B45309;
+  --orange-bg: #FEF3C7;
+
+  --smartlab-navy: #19436B;
+  --smartlab-light: #EFF5FF;
+  --smartlab-soft-blue: #D9E8FA;
+  --smartlab-white: #FFFFFF;
+  --smartlab-border: #D5E2F2;
+  --smartlab-text: #15395D;
 }
 
 * {
@@ -24,8 +31,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--background);
-  color: var(--text);
+  background: var(--background) !important;
+  color: var(--text) !important;
   line-height: 1.6;
   font-size: 15px;
 }
@@ -37,7 +44,8 @@ a {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
 }
 
@@ -49,8 +57,10 @@ button,
   transition: 0.2s ease;
 }
 
+/* Header */
+
 .topbar {
-  background: var(--white);
+  background: var(--white) !important;
   min-height: 76px;
   padding: 16px 5%;
   display: flex;
@@ -61,7 +71,7 @@ button,
 }
 
 .brand {
-  color: var(--primary);
+  color: var(--smartlab-navy) !important;
   font-size: 25px;
   font-weight: 800;
   white-space: nowrap;
@@ -74,7 +84,7 @@ button,
   align-items: center;
   justify-content: center;
   color: white;
-  background: var(--primary);
+  background: var(--smartlab-navy);
   border-radius: 9px;
   margin-right: 5px;
 }
@@ -86,20 +96,20 @@ button,
 }
 
 .topbar nav a {
-  color: #475569;
+  color: var(--text) !important;
   font-weight: 600;
 }
 
 .topbar nav a:hover,
 .text-link:hover,
 footer a:hover {
-  color: var(--primary);
+  color: var(--primary-dark) !important;
 }
 
 .outline-btn {
   background: white;
   color: var(--primary);
-  border: 1px solid #bfdbfe;
+  border: 1px solid #BFDBFE;
   border-radius: 8px;
   padding: 10px 16px;
   font-weight: 700;
@@ -108,6 +118,8 @@ footer a:hover {
 .outline-btn:hover {
   background: var(--primary-light);
 }
+
+/* Main page */
 
 .page {
   width: min(1200px, 92%);
@@ -123,7 +135,7 @@ footer a:hover {
 }
 
 .eyebrow {
-  color: var(--primary);
+  color: var(--primary) !important;
   font-size: 12px;
   letter-spacing: 1.5px;
   font-weight: 800;
@@ -131,6 +143,7 @@ footer a:hover {
 }
 
 .welcome h1 {
+  color: var(--smartlab-navy) !important;
   font-size: clamp(25px, 3vw, 34px);
   line-height: 1.25;
   margin-bottom: 9px;
@@ -141,14 +154,17 @@ footer a:hover {
   color: var(--muted);
 }
 
-.primary-btn {
+/* Buttons */
+
+.primary-btn,
+button.primary-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 0;
-  background: var(--primary);
-  color: white;
+  border: 1px solid var(--primary);
+  background: var(--primary) !important;
+  color: white !important;
   border-radius: 9px;
   padding: 12px 19px;
   font-weight: 700;
@@ -156,9 +172,12 @@ footer a:hover {
 }
 
 .primary-btn:hover {
-  background: var(--primary-dark);
+  background: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
   transform: translateY(-1px);
 }
+
+/* Statistics */
 
 .stats {
   display: grid;
@@ -169,7 +188,7 @@ footer a:hover {
 
 .stat-card,
 .panel {
-  background: var(--white);
+  background: var(--white) !important;
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 3px 12px rgba(15, 23, 42, 0.025);
@@ -187,7 +206,7 @@ footer a:hover {
   justify-content: center;
   align-items: center;
   border-radius: 11px;
-  color: var(--primary);
+  color: var(--primary) !important;
   background: var(--primary-light);
   font-size: 22px;
   margin-bottom: 15px;
@@ -200,6 +219,7 @@ footer a:hover {
 }
 
 .stat-card h2 {
+  color: var(--smartlab-navy) !important;
   font-size: 30px;
   margin: 3px 0;
 }
@@ -208,6 +228,8 @@ footer a:hover {
   color: var(--muted);
   font-size: 12px;
 }
+
+/* Panels and headings */
 
 .panel {
   padding: 25px;
@@ -225,6 +247,7 @@ footer a:hover {
 
 .section-heading h2,
 .panel h2 {
+  color: var(--smartlab-navy) !important;
   font-size: 19px;
   margin-bottom: 4px;
 }
@@ -236,11 +259,13 @@ footer a:hover {
 }
 
 .text-link {
-  color: var(--primary);
+  color: var(--primary) !important;
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
 }
+
+/* Table */
 
 .table-wrap {
   width: 100%;
@@ -255,11 +280,11 @@ table {
 }
 
 thead {
-  background: #f8fafc;
+  background: #EAF2FC;
 }
 
 th {
-  color: #64748b;
+  color: var(--smartlab-navy);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -269,7 +294,7 @@ th {
 th,
 td {
   padding: 15px 12px;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid #E2EAF4;
 }
 
 td {
@@ -285,6 +310,8 @@ td:first-child {
 tbody tr:last-child td {
   border-bottom: 0;
 }
+
+/* Status labels */
 
 .status {
   display: inline-block;
@@ -304,6 +331,8 @@ tbody tr:last-child td {
   background: var(--green-bg);
   color: var(--green);
 }
+
+/* Reports and columns */
 
 .two-columns {
   display: grid;
@@ -331,8 +360,8 @@ tbody tr:last-child td {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #FEE2E2;
+  color: #B91C1C;
   font-size: 12px;
   font-weight: 800;
   flex-shrink: 0;
@@ -346,6 +375,7 @@ tbody tr:last-child td {
 }
 
 .report-info strong {
+  color: var(--text);
   font-size: 13px;
   overflow-wrap: anywhere;
 }
@@ -355,24 +385,28 @@ tbody tr:last-child td {
   font-size: 11px;
 }
 
+/* Small buttons */
+
 .small-btn {
-  border: 1px solid #bfdbfe;
+  border: 1px solid #C6D9EF;
   border-radius: 7px;
   background: var(--primary-light);
-  color: var(--primary);
+  color: var(--primary) !important;
   padding: 8px 10px;
   font-size: 12px;
   font-weight: 700;
 }
 
 .small-btn:hover {
-  background: #dbeafe;
+  background: var(--smartlab-soft-blue);
 }
 
 .note {
   margin-top: 14px;
   font-size: 11px !important;
 }
+
+/* Forms */
 
 form {
   margin-top: 18px;
@@ -383,12 +417,14 @@ label {
   margin: 13px 0 6px;
   font-size: 13px;
   font-weight: 700;
+  color: var(--text);
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 11px 12px;
   background: white;
@@ -397,9 +433,10 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(25, 67, 107, 0.12);
 }
 
 textarea {
@@ -418,6 +455,8 @@ textarea {
   color: var(--green);
 }
 
+/* Quick action cards */
+
 .action-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -433,13 +472,14 @@ textarea {
   padding: 20px;
   border: 1px solid var(--border);
   border-radius: 11px;
-  background: white;
+  background: white !important;
+  color: var(--text);
   transition: 0.2s ease;
 }
 
 .action-card:hover {
-  border-color: #93c5fd;
-  background: #f8fbff;
+  border-color: #93B8E0;
+  background: #F6FAFF !important;
   transform: translateY(-2px);
 }
 
@@ -457,6 +497,7 @@ textarea {
 }
 
 .action-card strong {
+  color: var(--smartlab-navy);
   font-size: 14px;
 }
 
@@ -465,14 +506,18 @@ textarea {
   font-size: 12px;
 }
 
+/* Disclaimer */
+
 .disclaimer {
   padding: 17px 19px;
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
+  background: var(--primary-light);
+  border: 1px solid #D5E5F8;
   color: #475569;
   border-radius: 10px;
   font-size: 12px;
 }
+
+/* Footer */
 
 footer {
   display: flex;
@@ -487,9 +532,61 @@ footer {
 }
 
 footer a {
-  color: var(--primary);
+  color: var(--primary) !important;
   font-weight: 700;
 }
+
+/* Back button - existing design preserved */
+
+.back-btn {
+  background: #EAF2FC !important;
+  color: #15395D !important;
+  border: 1px solid #D2E1F5 !important;
+  border-radius: 28px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #D9E8FA !important;
+}
+
+/* SmartLab booking notifications */
+
+#patientNotifications {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.notification-item {
+  padding: 14px 16px;
+  border: 1px solid #D6E3F5;
+  border-left: 4px solid #19436B;
+  border-radius: 8px;
+  background: #F5F8FD;
+}
+
+.notification-item p {
+  margin: 0 0 6px;
+  color: #24456B;
+}
+
+.notification-item small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Responsive design - preserved */
 
 @media (max-width: 850px) {
   .topbar {
@@ -587,182 +684,4 @@ footer a {
     flex-direction: column;
     text-align: center;
   }
-}
-
-/* SmartLab Booking Notifications */
-#patientNotifications {
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.notification-item {
-  padding: 14px 16px;
-  border: 1px solid #d6e3f5;
-  border-left: 4px solid #477bbd;
-  border-radius: 8px;
-  background: #f5f8fd;
-}
-
-.notification-item p {
-  margin: 0 0 6px;
-  color: #24456b;
-}
-
-.notification-item small {
-  color: #64748b;
-  font-size: 12px;
-}
-
-/* SmartLab common colour theme */
-:root {
-  --smartlab-navy: #19436B;
-  --smartlab-light: #EFF5FF;
-  --smartlab-soft-blue: #D9E8FA;
-  --smartlab-white: #FFFFFF;
-  --smartlab-border: #D5E2F2;
-  --smartlab-text: #15395D;
-}
-
-/* Main page background */
-body {
-  background-color: var(--smartlab-light);
-  color: var(--smartlab-text);
-}
-
-/* Header and navigation */
-.topbar {
-  background-color: var(--smartlab-white);
-}
-
-/* Headings and links */
-h1, h2, h3,
-.brand,
-nav a,
-.text-link {
-  color: var(--smartlab-navy);
-}
-
-/* Primary buttons */
-.primary-btn,
-button.primary-btn {
-  background-color: var(--smartlab-navy);
-  color: var(--smartlab-white);
-  border-color: var(--smartlab-navy);
-}
-
-/* Cards and panels */
-.panel,
-.stat-card,
-.action-card {
-  background-color: var(--smartlab-white);
-  border-color: var(--smartlab-border);
-}
-
-/* Inputs */
-input,
-select,
-textarea {
-  border-color: var(--smartlab-border);
-}
-
-/* Back button - screenshot design */
-.back-btn {
-  background: #EAF2FC;
-  color: #15395D;
-  border: 1px solid #D2E1F5;
-  border-radius: 28px;
-  padding: 14px 22px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  white-space: nowrap;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.back-btn:hover {
-  background: #D9E8FA;
-}
-
-/* SmartLab theme override */
-body {
-  background: #EFF5FF !important;
-  color: #15395D !important;
-}
-
-.topbar {
-  background: #FFFFFF !important;
-}
-
-h1, h2, h3 {
-  color: #19436B !important;
-}
-
-.primary-btn,
-button.primary-btn {
-  background: #19436B !important;
-  color: #FFFFFF !important;
-  border-color: #19436B !important;
-}
-
-.panel,
-.stat-card,
-.action-card {
-  background-color: #FFFFFF !important;
-  border-color: #D5E2F2 !important;
-}
-/* SmartLab Dark Blue Theme */
-:root {
-  --smartlab-navy: #19436B;
-  --smartlab-light: #EFF5FF;
-  --smartlab-soft-blue: #D9E8FA;
-  --smartlab-white: #FFFFFF;
-  --smartlab-border: #D5E2F2;
-  --smartlab-text: #15395D;
-}
-
-body {
-  background-color: #EFF5FF !important;
-  color: #15395D !important;
-}
-
-.topbar {
-  background-color: #FFFFFF !important;
-}
-
-h1, h2, h3,
-.brand,
-.topbar nav a,
-.text-link {
-  color: #19436B !important;
-}
-
-.primary-btn,
-button.primary-btn {
-  background-color: #19436B !important;
-  color: #FFFFFF !important;
-  border-color: #19436B !important;
-}
-
-.panel,
-.stat-card,
-.action-card {
-  background-color: #FFFFFF !important;
-  border-color: #D5E2F2 !important;
-}
-
-.back-btn {
-  background-color: #EAF2FC !important;
-  color: #15395D !important;
-  border: 1px solid #D2E1F5 !important;
-  border-radius: 28px;
-}
-
-.back-btn:hover {
-  background-color: #D9E8FA !important;
 }

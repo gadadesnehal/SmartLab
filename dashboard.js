@@ -1105,21 +1105,3 @@ window.addEventListener("storage", function (event) {
 
   window.updateDailyBusinessReport = updateDailyReport;
 })();
-
-
-  // Default to today's local date.
-  const today = new Date();
-  const localToday = [
-    today.getFullYear(),
-    String(today.getMonth() + 1).padStart(2, "0"),
-    String(today.getDate()).padStart(2, "0")
-  ].join("-");
-
-  dateInput.value = localToday;
-  dateInput.addEventListener("change", updateDailyReport);
-
-  updateDailyReport();
-
-  // Allow other dashboard code to refresh this report.
-  window.updateDailyBusinessReport = updateDailyReport;
-})();

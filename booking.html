@@ -431,15 +431,11 @@ header > .back-btn {
             <label for="bookingTime" data-i18n="time">Preferred Time</label>
             <select id="bookingTime" name="bookingTime" required>
               <option value="" data-i18n="chooseTime">Choose a time</option>
-              <option>08:00 AM</option>
-              <option>09:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>02:00 PM</option>
-              <option>03:00 PM</option>
-              <option>04:00 PM</option>
-              <option>05:00 PM</option>
+              <option>08:00 AM-09:00 AM</option>
+              <option>10:00 AM-11:00 AM</option>
+              <option>12:00 PM-01:00 AM</option>
+              <option>02:00 PM-03:00 PM</option>
+              <option>04:00 PM-05:00 PM</option>
             </select>
           </div>
 
@@ -730,30 +726,42 @@ const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
 
 bookingDate.min = localToday;
 
+
 function updateSummary() {
   const selectedTest = testSelect.options[testSelect.selectedIndex];
   const price = selectedTest ? Number(selectedTest.dataset.price || 0) : 0;
-  const lang = languageSelect.value;
+  const lang = localStorage.getItem("smartlab-language") || "en";
+  const currentLanguage = translations[lang] ? lang : "en";
 
-  document.getElementById("summaryPatient").textContent = patientName.value || "—";
+  document.getElementById("summaryPatient").textContent =
+    patientName.value.trim() || "—";
+
   document.getElementById("summaryPhone").textContent =
-  document.getElementById("phone").value || "—";
+    document.getElementById("phone").value.trim() || "—";
 
-document.getElementById("summaryAddress").textContent =
-  address.value.trim() || "—";
+  document.getElementById("summaryAddress").textContent =
+    address.value.trim() || "—";
 
-document.getElementById("summaryAddressRow").hidden =
-  collectionMethod.value !== "Home Collection";
-  document.getElementById("summaryLab").textContent = laboratory.value || "—";
-  document.getElementById("summaryTest").textContent = testSelect.value || "—";
+  document.getElementById("summaryAddressRow").hidden =
+    collectionMethod.value !== "Home Collection";
+
+  document.getElementById("summaryLab").textContent =
+    laboratory.value || "—";
+
+  document.getElementById("summaryTest").textContent =
+    testSelect.value || "—";
 
   document.getElementById("summaryCollection").textContent =
     collectionMethod.value === "Home Collection"
-      ? translations[lang].homeCollection
-      : translations[lang].atLab;
+      ? translations[currentLanguage].homeCollection
+      : translations[currentLanguage].atLab;
 
-  document.getElementById("summaryDate").textContent = bookingDate.value || "—";
-  document.getElementById("summaryTime").textContent = bookingTime.value || "—";
+  document.getElementById("summaryDate").textContent =
+    bookingDate.value || "—";
+
+  document.getElementById("summaryTime").textContent =
+    bookingTime.value || "—";
+
   document.getElementById("summaryPrice").textContent = "₹" + price;
 }
 

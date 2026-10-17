@@ -895,3 +895,20 @@ footer {
     flex-direction: column;
   }
 }
+.back-navigation {
+  margin: 15px 20px;
+}
+
+.back-navigation button {
+  padding: 9px 16px;
+  border: 1px solid #4f79a7;
+  border-radius: 6px;
+  background: white;
+  color: #315d8a;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.back-navigation button:hover {
+  background: #eaf1f8;
+}

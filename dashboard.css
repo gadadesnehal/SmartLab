@@ -716,3 +716,53 @@ button.primary-btn {
   background-color: #FFFFFF !important;
   border-color: #D5E2F2 !important;
 }
+/* SmartLab Dark Blue Theme */
+:root {
+  --smartlab-navy: #19436B;
+  --smartlab-light: #EFF5FF;
+  --smartlab-soft-blue: #D9E8FA;
+  --smartlab-white: #FFFFFF;
+  --smartlab-border: #D5E2F2;
+  --smartlab-text: #15395D;
+}
+
+body {
+  background-color: #EFF5FF !important;
+  color: #15395D !important;
+}
+
+.topbar {
+  background-color: #FFFFFF !important;
+}
+
+h1, h2, h3,
+.brand,
+.topbar nav a,
+.text-link {
+  color: #19436B !important;
+}
+
+.primary-btn,
+button.primary-btn {
+  background-color: #19436B !important;
+  color: #FFFFFF !important;
+  border-color: #19436B !important;
+}
+
+.panel,
+.stat-card,
+.action-card {
+  background-color: #FFFFFF !important;
+  border-color: #D5E2F2 !important;
+}
+
+.back-btn {
+  background-color: #EAF2FC !important;
+  color: #15395D !important;
+  border: 1px solid #D2E1F5 !important;
+  border-radius: 28px;
+}
+
+.back-btn:hover {
+  background-color: #D9E8FA !important;
+}

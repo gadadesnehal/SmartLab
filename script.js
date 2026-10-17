@@ -6,7 +6,7 @@ const translations = {
     about: "About",
     findLabs: "Find Labs",
     tests: "Tests",
-    bookTest: "Explore Tests",
+    bookTest: "Explore Tests", 
     patientDashboard: "Patient Dashboard",
     labDashboard: "Lab Owner Dashboard",
     howItWorks: "How It Works",

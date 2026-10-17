@@ -613,3 +613,72 @@ footer a {
   color: #64748b;
   font-size: 12px;
 }
+
+/* SmartLab common colour theme */
+:root {
+  --smartlab-navy: #19436B;
+  --smartlab-light: #EFF5FF;
+  --smartlab-soft-blue: #D9E8FA;
+  --smartlab-white: #FFFFFF;
+  --smartlab-border: #D5E2F2;
+  --smartlab-text: #15395D;
+}
+
+/* Main page background */
+body {
+  background-color: var(--smartlab-light);
+  color: var(--smartlab-text);
+}
+
+/* Header and navigation */
+.topbar {
+  background-color: var(--smartlab-white);
+}
+
+/* Headings and links */
+h1, h2, h3,
+.brand,
+nav a,
+.text-link {
+  color: var(--smartlab-navy);
+}
+
+/* Primary buttons */
+.primary-btn,
+button.primary-btn {
+  background-color: var(--smartlab-navy);
+  color: var(--smartlab-white);
+  border-color: var(--smartlab-navy);
+}
+
+/* Cards and panels */
+.panel,
+.stat-card,
+.action-card {
+  background-color: var(--smartlab-white);
+  border-color: var(--smartlab-border);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  border-color: var(--smartlab-border);
+}
+
+/* Back button */
+.back-btn {
+  background-color: #EAF2FC;
+  color: var(--smartlab-navy);
+  border: 1px solid #D2E1F5;
+  border-radius: 28px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: var(--smartlab-soft-blue);
+}

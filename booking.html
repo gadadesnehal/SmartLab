@@ -468,7 +468,7 @@ header > .back-btn {
         <div class="summary-row">
           <span data-i18n="summaryPatient">Patient</span>
           <span id="summaryPatient">—</span>
-        </div>2
+        </div>
         <div class="summary-row">
   <span>Phone Number</span>
   <span id="summaryPhone">—</span>
@@ -676,16 +676,6 @@ function applyBookingLanguage(language) {
     }
   });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
-    const key = element.dataset.i18nPlaceholder;
-
-    if (translations[lang][key]) {
-      element.placeholder = translations[lang][key];
-    }
-  });
-
-  updatePreparation();
-}
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
     const key = element.dataset.i18nPlaceholder;
@@ -785,6 +775,8 @@ function updateAddressVisibility() {
   element.addEventListener("input", updateSummary);
   element.addEventListener("change", updateSummary);
 });
+document.getElementById("phone").addEventListener("input", updateSummary);
+address.addEventListener("input", updateSummary);
 
 testSelect.addEventListener("change", updatePreparation);
 collectionMethod.addEventListener("change", updateAddressVisibility);
@@ -792,7 +784,7 @@ collectionMethod.addEventListener("change", updateAddressVisibility);
 form.addEventListener("submit", event => {
   event.preventDefault();
 
-  const lang = languageSelect.value;
+  const lang = currentLanguage;
 
   if (!form.checkValidity()) {
     form.reportValidity();

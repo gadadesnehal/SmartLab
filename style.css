@@ -912,3 +912,10 @@ footer {
 .back-navigation button:hover {
   background: #eaf1f8;
 }
+/* Move Home Collection card to the side */
+.home-collection-card {
+  position: absolute;
+  right: -40px;
+  bottom: 30px;
+  z-index: 2;
+}

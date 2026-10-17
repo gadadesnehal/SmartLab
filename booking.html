@@ -472,7 +472,16 @@ header > .back-btn {
         <div class="summary-row">
           <span data-i18n="summaryPatient">Patient</span>
           <span id="summaryPatient">—</span>
-        </div>
+        </div>2
+        <div class="summary-row">
+  <span>Phone Number</span>
+  <span id="summaryPhone">—</span>
+</div>
+
+<div class="summary-row" id="summaryAddressRow" hidden>
+  <span>Home Address</span>
+  <span id="summaryAddress">—</span>
+</div>
 
         <div class="summary-row">
           <span data-i18n="summaryLab">Laboratory</span>
@@ -655,20 +664,32 @@ const preparation = {
   "Trop T":"Usually no fasting is required. If a heart emergency is suspected, seek urgent medical care rather than delaying for preparation."
 };
 
-const languageSelect = document.getElementById("languageSelect");
-
+let currentLanguage = localStorage.getItem("smartlab-language") || "en";
 function applyBookingLanguage(language) {
   const lang = translations[language] ? language : "en";
+
+  currentLanguage = lang;
   document.documentElement.lang = lang;
   localStorage.setItem("smartlab-language", lang);
-  languageSelect.value = lang;
 
   document.querySelectorAll("[data-i18n]").forEach(element => {
     const key = element.dataset.i18n;
+
     if (translations[lang][key]) {
       element.textContent = translations[lang][key];
     }
   });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+    const key = element.dataset.i18nPlaceholder;
+
+    if (translations[lang][key]) {
+      element.placeholder = translations[lang][key];
+    }
+  });
+
+  updatePreparation();
+}
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
     const key = element.dataset.i18nPlaceholder;
@@ -681,7 +702,7 @@ function applyBookingLanguage(language) {
 }
 
 function updatePreparation() {
-  const lang = languageSelect.value;
+  const lang = currentLanguage;
   const test = document.getElementById("testSelect").value;
   const output = document.getElementById("preparationText");
 
@@ -715,6 +736,14 @@ function updateSummary() {
   const lang = languageSelect.value;
 
   document.getElementById("summaryPatient").textContent = patientName.value || "—";
+  document.getElementById("summaryPhone").textContent =
+  document.getElementById("phone").value || "—";
+
+document.getElementById("summaryAddress").textContent =
+  address.value.trim() || "—";
+
+document.getElementById("summaryAddressRow").hidden =
+  collectionMethod.value !== "Home Collection";
   document.getElementById("summaryLab").textContent = laboratory.value || "—";
   document.getElementById("summaryTest").textContent = testSelect.value || "—";
 
@@ -751,11 +780,6 @@ function updateAddressVisibility() {
 
 testSelect.addEventListener("change", updatePreparation);
 collectionMethod.addEventListener("change", updateAddressVisibility);
-
-languageSelect.addEventListener("change", () => {
-  applyBookingLanguage(languageSelect.value);
-  updateSummary();
-});
 
 form.addEventListener("submit", event => {
   event.preventDefault();

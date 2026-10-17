@@ -666,24 +666,7 @@ textarea {
   border-color: var(--smartlab-border);
 }
 
-/* Back button */
-.back-btn {
-  background-color: #EAF2FC;
-  color: var(--smartlab-navy);
-  border: 1px solid #D2E1F5;
-  border-radius: 28px;
-  padding: 12px 22px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.back-btn:hover {
-  background-color: var(--smartlab-soft-blue);
-}
-
-/* Same Back button design on every page */
+/* Back button - screenshot design */
 .back-btn {
   background: #EAF2FC;
   color: #15395D;
@@ -698,6 +681,8 @@ textarea {
   justify-content: center;
   gap: 6px;
   white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
 .back-btn:hover {

@@ -1,4 +1,3 @@
-
 const translations = {
   en: {
     home: "Home",
@@ -6,7 +5,7 @@ const translations = {
     about: "About",
     findLabs: "Find Labs",
     tests: "Tests",
-    bookTest: "Explore Tests", 
+    bookTest: "Explore Tests",
     patientDashboard: "Patient Dashboard",
     labDashboard: "Lab Owner Dashboard",
     howItWorks: "How It Works",
@@ -242,18 +241,15 @@ const translations = {
 };
 
 const languageSelect = document.getElementById("languageSelect");
-console.log("Language dropdown:", languageSelect);
 
 function changeLanguage(language) {
   const dictionary = translations[language];
-
   if (!dictionary) return;
 
   document.documentElement.lang = language;
 
   document.querySelectorAll("[data-translate]").forEach((element) => {
     const key = element.dataset.translate;
-
     if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
       element.textContent = dictionary[key];
     }
@@ -261,7 +257,6 @@ function changeLanguage(language) {
 
   document.querySelectorAll("[data-translate-placeholder]").forEach((element) => {
     const key = element.dataset.translatePlaceholder;
-
     if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
       element.placeholder = dictionary[key];
     }
@@ -269,7 +264,6 @@ function changeLanguage(language) {
 
   document.querySelectorAll("[data-translate-aria]").forEach((element) => {
     const key = element.dataset.translateAria;
-
     if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
       element.setAttribute("aria-label", dictionary[key]);
     }
@@ -282,42 +276,36 @@ function changeLanguage(language) {
   }
 }
 
-const languageSelect = document.getElementById("languageSelect");
+function initializeLanguageSelector() {
+  const selector = document.getElementById("languageSelect");
+  if (!selector) {
+    console.warn("Language selector #languageSelect was not found.");
+    return;
+  }
 
-if (languageSelect) {
-  languageSelect.onchange = function () {
+  selector.addEventListener("change", function () {
     changeLanguage(this.value);
-  };
+  });
 
   let initialLanguage = "en";
 
   try {
     const savedLanguage = localStorage.getItem("smartlab-language");
-
     if (savedLanguage && translations[savedLanguage]) {
       initialLanguage = savedLanguage;
     }
   } catch (error) {
-    // Use English as default
+    // Use English by default.
   }
 
-  languageSelect.value = initialLanguage;
+  selector.value = initialLanguage;
   changeLanguage(initialLanguage);
 }
-  let initialLanguage = "en";
 
-  try {
-    const savedLanguage = localStorage.getItem("smartlab-language");
-
-    if (savedLanguage && translations[savedLanguage]) {
-      initialLanguage = savedLanguage;
-    }
-  } catch (error) {
-    // Use English if browser storage is unavailable.
-  }
-
-  languageSelect.value = initialLanguage;
-  changeLanguage(initialLanguage);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeLanguageSelector);
+} else {
+  initializeLanguageSelector();
 }
 
 const searchButton = document.getElementById("searchButton");
@@ -325,8 +313,9 @@ const labSearch = document.getElementById("labSearch");
 const searchMessage = document.getElementById("searchMessage");
 
 function showSearchMessage(key) {
-  const language = languageSelect && translations[languageSelect.value]
-    ? languageSelect.value
+  const selector = document.getElementById("languageSelect");
+  const language = selector && translations[selector.value]
+    ? selector.value
     : "en";
 
   if (searchMessage) {

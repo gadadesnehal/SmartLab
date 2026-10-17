@@ -1,237 +1,410 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="style.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SmartLab | Smart Healthcare</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <script src="script.js"></script>
-</body>
-</html>
 
+<body>
 
 <header class="navbar">
   <a class="logo" href="#home">
     <span class="logo-icon">⚕</span>
-    <span>SmartLab<small>Smart Care, Smarter Lab Management</small></span>
+    <span>
+      SmartLab
+      <small data-translate="tagline">Smart Care, Smarter Lab Management</small>
+    </span>
   </a>
 
-  
-<nav>
-  <a href="#home" data-translate="home">Home</a>
-  <a href="#labs" data-translate="findLabs">Find Labs</a>
-  <a href="tests.html" data-translate="tests">Tests</a>
-  <a href="booking.html" data-translate="bookTest">Book a Test</a>
-  <a href="patient-dashboard.html" data-translate="patientDashboard">Patient Dashboard</a>
-  <a href="lab-dashboard.html" data-translate="labDashboard">Lab Owner Dashboard</a>
-  <a href="#workflow" data-translate="howItWorks">How It Works</a>
-  <a href="#about" data-translate="about">About</a>
-</nav>
-
+  <nav>
+    <a href="#home" data-translate="home">Home</a>
+    <a href="#labs" data-translate="findLabs">Find Labs</a>
+    <a href="tests.html" data-translate="tests">Tests</a>
+    <a href="booking.html" data-translate="bookTest">Book a Test</a>
+    <a href="patient-dashboard.html" data-translate="patientDashboard">Patient Dashboard</a>
+    <a href="lab-dashboard.html" data-translate="labDashboard">Lab Owner Dashboard</a>
+    <a href="#workflow" data-translate="howItWorks">How It Works</a>
+    <a href="#about" data-translate="about">About</a>
+  </nav>
 
   <div class="nav-actions">
-   
-<select id="languageSelect">
-  <option value="en">English</option>
-  <option value="mr">मराठी</option>
-  <option value="hi">हिंदी</option>
-</select>
+    <select id="languageSelect" aria-label="Select language">
+      <option value="en">English</option>
+      <option value="mr">मराठी</option>
+      <option value="hi">हिंदी</option>
+    </select>
 
-    <a class="btn outline" href="#login">Login</a>
-    <a class="btn primary" href="#login">Register</a>
+    <a class="btn outline" href="#login" data-translate="login">Login</a>
+    <a class="btn primary" href="#login" data-translate="register">Register</a>
   </div>
 </header>
 
 <main>
+
+  <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <span class="eyebrow">TRUSTED · SIMPLE · CONVENIENT</span>
-      
-<h1 data-translate="heading">Your Health,<br><span>Our Priority.</span></h1>
 
-<p data-translate="description">
-  Find pathology laboratories, book tests, request home sample collection, and securely access your reports in one place.
-</p>
+      <span class="eyebrow" data-translate="heroEyebrow">
+        TRUSTED · SIMPLE · CONVENIENT
+      </span>
 
+      <h1 data-translate="heading">
+        Your Health,<br><span>Our Priority.</span>
+      </h1>
+
+      <p data-translate="description">
+        Find pathology laboratories, book tests, request home sample
+        collection, and securely access your reports in one place.
+      </p>
 
       <div class="search-panel">
-        <label for="labSearch">Find a laboratory</label>
+        <label for="labSearch" data-translate="searchLabel">
+          Find a laboratory
+        </label>
+
         <div class="search-row">
-          <input id="labSearch" type="text" placeholder="Enter laboratory or city">
-          <button class="btn primary" id="searchButton">Search</button>
+          <input
+            id="labSearch"
+            type="text"
+            placeholder="Enter laboratory or city"
+            data-translate-placeholder="searchPlaceholder"
+          >
+          <button class="btn primary" id="searchButton" data-translate="search">
+            Search
+          </button>
         </div>
+
         <small id="searchMessage" aria-live="polite"></small>
       </div>
 
       <div class="hero-actions">
-        <a class="btn primary" href="tests.html" data-translate="bookTest">Explore Tests</a>
+        <a class="btn primary" href="tests.html" data-translate="exploreTests">
+          Explore Tests
+        </a>
         <a class="btn outline" href="#login" data-translate="login">Login</a>
       </div>
 
       <div class="trust-line">
-        <span>✓ Easy booking</span>
-        <span>✓ Private reports</span>
-        <span>✓ Multiple labs</span>
+        <span data-translate="easyBooking">✓ Easy booking</span>
+        <span data-translate="privateReports">✓ Private reports</span>
+        <span data-translate="multipleLabs">✓ Multiple labs</span>
       </div>
+
     </div>
 
     <div class="hero-visual">
       <div class="visual-circle"></div>
+
       <div class="lab-illustration">
         <div class="illustration-top">
           <span class="status-dot"></span>
-          <span>LAB OVERVIEW</span>
-          <span class="live-label">DEMO</span>
+          <span data-translate="labOverview">LAB OVERVIEW</span>
+          <span class="live-label" data-translate="demo">DEMO</span>
         </div>
+
         <div class="microscope">🔬</div>
-        <div class="visual-title">Smarter Laboratory Care</div>
-        <p>Tests, bookings and reports — organised.</p>
+
+        <div class="visual-title" data-translate="visualTitle">
+          Smarter Laboratory Care
+        </div>
+
+        <p data-translate="visualDescription">
+          Tests, bookings and reports — organised.
+        </p>
+
         <div class="mini-stats">
-          <div><strong>01</strong><small>Book tests</small></div>
-          <div><strong>02</strong><small>My Appointments</small></div>
-          <div><strong>03</strong><small>View reports</small></div>
+          <div>
+            <strong>01</strong>
+            <small data-translate="bookTests">Book tests</small>
+          </div>
+          <div>
+            <strong>02</strong>
+            <small data-translate="myAppointments">My Appointments</small>
+          </div>
+          <div>
+            <strong>03</strong>
+            <small data-translate="viewReports">View reports</small>
+          </div>
         </div>
       </div>
-      <div class="floating-card card-one">✓ <span>Simple booking</span></div>
-    
+
+      <div class="floating-card card-one">
+        ✓ <span data-translate="simpleBooking">Simple booking</span>
+      </div>
     </div>
   </section>
-  <div class="home-collection-below">
-  <div class="floating-card card-two">⌂ <span>Home collection</span></div>
-</div>
 
+  <!-- Home Collection Card -->
+  <div class="home-collection-below">
+    <div class="floating-card card-two">
+      ⌂ <span data-translate="homeCollection">Home collection</span>
+    </div>
+  </div>
+
+  <!-- Quick Features -->
   <section class="quick-features">
-    <article><span class="feature-icon">⌕</span><div><h3>Find Laboratories</h3><p>Explore available labs and tests.</p></div></article>
-    <article><span class="feature-icon">▦</span><div><h3>Book a Test</h3><p>Choose a test and preferred time.</p></div></article>
-    <article><span class="feature-icon">⌂</span><div><h3>Home Collection</h3><p>Request sample collection at home.</p></div></article>
-    <article><span class="feature-icon">▤</span><div><h3>Access Reports</h3><p>View your reports securely.</p></div></article>
+
+    <article>
+      <span class="feature-icon">⌕</span>
+      <div>
+        <h3 data-translate="findLaboratories">Find Laboratories</h3>
+        <p data-translate="exploreLabs">Explore available labs and tests.</p>
+      </div>
+    </article>
+
+    <article>
+      <span class="feature-icon">▦</span>
+      <div>
+        <h3 data-translate="bookTest">Book a Test</h3>
+        <p data-translate="chooseTestTime">Choose a test and preferred time.</p>
+      </div>
+    </article>
+
+    <article>
+      <span class="feature-icon">⌂</span>
+      <div>
+        <h3 data-translate="homeCollection">Home Collection</h3>
+        <p data-translate="requestCollection">Request sample collection at home.</p>
+      </div>
+    </article>
+
+    <article>
+      <span class="feature-icon">▤</span>
+      <div>
+        <h3 data-translate="accessReports">Access Reports</h3>
+        <p data-translate="viewReportsSecurely">View your reports securely.</p>
+      </div>
+    </article>
+
   </section>
 
+  <!-- How It Works -->
   <section class="section workflow-section" id="workflow">
     <div class="section-heading">
-      <span class="eyebrow">SIMPLE PROCESS</span>
+      <span class="eyebrow" data-translate="simpleProcess">SIMPLE PROCESS</span>
+
       <h2 data-translate="howItWorks">How SmartLab Works</h2>
-      <p>Four simple steps to manage your laboratory test journey.</p>
+
+      <p data-translate="workflowDescription">
+        Four simple steps to manage your laboratory test journey.
+      </p>
     </div>
 
     <div class="workflow">
+
       <article class="step">
         <div class="step-icon">⌕</div>
-        <span class="step-number">STEP 01</span>
-        <h3>Find a Lab</h3>
-        <p>Explore laboratories and available tests.</p>
+        <span class="step-number" data-translate="step01">STEP 01</span>
+        <h3 data-translate="findLab">Find a Lab</h3>
+        <p data-translate="findLabDescription">
+          Explore laboratories and available tests.
+        </p>
       </article>
 
       <div class="step-arrow" aria-hidden="true">→</div>
 
       <article class="step">
         <div class="step-icon">▦</div>
-        <span class="step-number">STEP 02</span>
-        <h3>Book a Test</h3>
-        <p>Select your test, date and collection method.</p>
+        <span class="step-number" data-translate="step02">STEP 02</span>
+        <h3 data-translate="bookTest">Book a Test</h3>
+        <p data-translate="bookTestDescription">
+          Select your test, date and collection method.
+        </p>
       </article>
 
       <div class="step-arrow" aria-hidden="true">→</div>
 
       <article class="step">
         <div class="step-icon">⌂</div>
-        <span class="step-number">STEP 03</span>
-        <h3>Sample Collection</h3>
-        <p>Visit the lab or request home collection.</p>
+        <span class="step-number" data-translate="step03">STEP 03</span>
+        <h3 data-translate="sampleCollection">Sample Collection</h3>
+        <p data-translate="sampleCollectionDescription">
+          Visit the lab or request home collection.
+        </p>
       </article>
 
       <div class="step-arrow" aria-hidden="true">→</div>
 
       <article class="step">
         <div class="step-icon">▤</div>
-        <span class="step-number">STEP 04</span>
-        <h3>Get Your Report</h3>
-        <p>Securely access your report when ready.</p>
+        <span class="step-number" data-translate="step04">STEP 04</span>
+        <h3 data-translate="getReport">Get Your Report</h3>
+        <p data-translate="getReportDescription">
+          Securely access your report when ready.
+        </p>
       </article>
+
     </div>
   </section>
 
+  <!-- Laboratory Discovery -->
   <section class="section discovery-section" id="labs">
     <div class="section-heading left-heading">
-      <span class="eyebrow">EXPLORE SMARTLAB</span>
-      <h2>Discover Laboratory Services</h2>
-      <p>Example content for the initial website design.</p>
+      <span class="eyebrow" data-translate="exploreSmartLab">EXPLORE SMARTLAB</span>
+
+      <h2 data-translate="discoverServices">Discover Laboratory Services</h2>
+
+      <p data-translate="exampleContent">
+        Example content for the initial website design.
+      </p>
     </div>
 
     <div class="discovery-grid">
       <div class="panel">
-        <div class="panel-heading">
-          <h3>Featured Laboratories</h3>
-          <span class="demo-badge">DEMO</span>
-        </div>
-        <article class="lab-card">
-          <div class="lab-symbol">✚</div>
-          <div class="lab-info">
-            <h4>Demo Pathology Lab A</h4>
-            <p>Hinjewadi, Pune</p>
-            <small>Sample listing — not a verified lab</small>
-          </div>
-        </article>
-        <article class="lab-card">
-          <div class="lab-symbol">✚</div>
-          <div class="lab-info">
-            <h4>Demo Pathology Lab B</h4>
-            <p>Wakad, Pune</p>
-            <small>Sample listing — not a verified lab</small>
-          </div>
-        </article>
-      </div>
 
-      
+        <div class="panel-heading">
+          <h3 data-translate="featuredLabs">Featured Laboratories</h3>
+          <span class="demo-badge" data-translate="demo">DEMO</span>
+        </div>
+
+        <article class="lab-card">
+          <div class="lab-symbol">✚</div>
+          <div class="lab-info">
+            <h4 data-translate="demoLabA">Demo Pathology Lab A</h4>
+            <p data-translate="hinjewadiPune">Hinjewadi, Pune</p>
+            <small data-translate="sampleListing">
+              Sample listing — not a verified lab
+            </small>
+          </div>
+        </article>
+
+        <article class="lab-card">
+          <div class="lab-symbol">✚</div>
+          <div class="lab-info">
+            <h4 data-translate="demoLabB">Demo Pathology Lab B</h4>
+            <p data-translate="wakadPune">Wakad, Pune</p>
+            <small data-translate="sampleListing">
+              Sample listing — not a verified lab
+            </small>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
+  <!-- Laboratory Owner Banner -->
   <section class="owner-banner" id="about">
     <div class="owner-symbol">⚕</div>
+
     <div>
-      <span class="eyebrow">FOR LABORATORY OWNERS</span>
-      <h2>Manage Your Lab Smarter</h2>
-      <p>Organise bookings, test listings, sample collection and reports from one dashboard.</p>
+      <span class="eyebrow" data-translate="forLabOwners">
+        FOR LABORATORY OWNERS
+      </span>
+
+      <h2 data-translate="manageLab">
+        Manage Your Lab Smarter
+      </h2>
+
+      <p data-translate="manageLabDescription">
+        Organise bookings, test listings, sample collection and reports
+        from one dashboard.
+      </p>
     </div>
-    <a href="#login" class="btn white-btn">Register Your Laboratory</a>
+
+    <a href="#login" class="btn white-btn" data-translate="registerLab">
+      Register Your Laboratory
+    </a>
   </section>
 
+  <!-- Benefits -->
   <section class="section benefits">
     <div class="section-heading">
-      <h2>Why Choose SmartLab?</h2>
-      <p>Designed to make laboratory services easier to manage.</p>
+      <h2 data-translate="whySmartLab">Why Choose SmartLab?</h2>
+      <p data-translate="benefitsDescription">
+        Designed to make laboratory services easier to manage.
+      </p>
     </div>
+
     <div class="benefit-grid">
-      <article><span>✓</span><h3>Easy to Use</h3><p>Simple navigation for patients and lab staff.</p></article>
-      <article><span>▦</span><h3>Organised Bookings</h3><p>Keep track of appointments and sample status.</p></article>
-      <article><span>⌂</span><h3>Home Collection</h3><p>Manage requests for home sample collection.</p></article>
-      <article><span>▤</span><h3>Private Reports</h3><p>Reports should be accessible only to authorised users.</p></article>
+
+      <article>
+        <span>✓</span>
+        <h3 data-translate="easyToUse">Easy to Use</h3>
+        <p data-translate="easyToUseDescription">
+          Simple navigation for patients and lab staff.
+        </p>
+      </article>
+
+      <article>
+        <span>▦</span>
+        <h3 data-translate="organisedBookings">Organised Bookings</h3>
+        <p data-translate="organisedBookingsDescription">
+          Keep track of appointments and sample status.
+        </p>
+      </article>
+
+      <article>
+        <span>⌂</span>
+        <h3 data-translate="homeCollection">Home Collection</h3>
+        <p data-translate="homeCollectionDescription">
+          Manage requests for home sample collection.
+        </p>
+      </article>
+
+      <article>
+        <span>▤</span>
+        <h3 data-translate="privateReports">Private Reports</h3>
+        <p data-translate="privateReportsDescription">
+          Reports should be accessible only to authorised users.
+        </p>
+      </article>
+
     </div>
   </section>
 
+  <!-- Login Information -->
   <section class="login-area" id="login">
     <div>
-      <span class="eyebrow">GET STARTED</span>
-      <h2>Welcome to SmartLab</h2>
-      <p>Patient and laboratory-owner authentication will be connected in the next development stage.</p>
+      <span class="eyebrow" data-translate="getStarted">GET STARTED</span>
+
+      <h2 data-translate="welcomeSmartLab">Welcome to SmartLab</h2>
+
+      <p data-translate="authenticationNotice">
+        Patient and laboratory-owner authentication will be connected
+        in the next development stage.
+      </p>
     </div>
-    <span class="setup-label">Frontend prototype</span>
+
+    <span class="setup-label" data-translate="frontendPrototype">
+      Frontend prototype
+    </span>
   </section>
+
 </main>
 
+<!-- Footer -->
 <footer>
   <div class="footer-main">
+
     <a class="logo footer-logo" href="#home">
       <span class="logo-icon">⚕</span>
-      <span>SmartLab<small>Smart Care, Smarter Lab Management</small></span>
+      <span>
+        SmartLab
+        <small data-translate="tagline">Smart Care, Smarter Lab Management</small>
+      </span>
     </a>
+
     <div class="footer-links">
-  <a href="#home" data-translate="home">Home</a>
-  <a href="#labs" data-translate="findLabs">Find Labs</a>
-  <a href="tests.html" data-translate="tests">Tests</a>
-  <a href="#workflow" data-translate="howItWorks">How It Works</a>
-</div>
+      <a href="#home" data-translate="home">Home</a>
+      <a href="#labs" data-translate="findLabs">Find Labs</a>
+      <a href="tests.html" data-translate="tests">Tests</a>
+      <a href="#workflow" data-translate="howItWorks">How It Works</a>
+    </div>
+
   </div>
-  <div
+
+  <div class="footer-bottom">
+    <p data-translate="footerCopyright">
+      SmartLab — Smart Care, Smarter Lab Management.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

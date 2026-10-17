@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popular Tests | SmartLab</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f6ff;
+      color: #173653;
+    }
+
+    header {
+      background: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #dce6f2;
+    }
+
+    .logo {
+      color: #174878;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #3678c8;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #173653;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #2874d0;
+    }
+
+    .blue-bar {
+      background: #153e68;
+      color: white;
+      padding: 11px 6%;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 30px 25px 45px;
+    }
+
+    .heading {
+      font-size: 30px;
+      margin-bottom: 22px;
+      color: #183b60;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 350px;
+      padding: 13px 15px;
+      border: 1px solid #d5e0ec;
+      border-radius: 10px;
+      font-size: 15px;
+      outline-color: #3678c8;
+      margin-bottom: 25px;
+      background: white;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .test-card {
+      background: white;
+      border: 1px solid #edf1f6;
+      border-radius: 18px;
+      padding: 20px 12px 16px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(30, 61, 94, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 235px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .test-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 17px rgba(30, 61, 94, 0.13);
+    }
+
+    .test-icon {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #e1eaf4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .test-card h3 {
+      font-size: 15px;
+      line-height: 1.4;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #173653;
+      margin: 8px 0 14px;
+    }
+
+    .book-btn {
+      margin-top: auto;
+      display: block;
+      width: 100%;
+      max-width: 150px;
+      text-decoration: none;
+      background: #173f6b;
+      color: white;
+      border-radius: 25px;
+      padding: 11px 8px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background: #2868a9;
+    }
+
+    .no-results {
+      display: none;
+      padding: 25px 0;
+      color: #61758a;
+    }
+
+    footer {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      color: #667b91;
+      font-size: 13px;
+      border-top: 1px solid #dce6f2;
+    }
+
+    @media (max-width: 950px) {
+      .test-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 13px;
+      }
+
+      main {
+        padding: 25px 15px;
+      }
+
+      .heading {
+        font-size: 25px;
+      }
+
+      .test-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .test-card {
+        padding: 17px 9px;
+      }
+
+      .test-card h3 {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Smart<span>Lab</span></div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tests.html">Popular Tests</a>
+      <a href="booking.html">Book a Test</a>
+      <a href="patient-dashboard.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <div class="blue-bar">
+    Reliable Testing &nbsp; | &nbsp;
+    Simple Booking &nbsp; | &nbsp;
+    Convenient Home Sample Collection
+  </div>
+
+  <main>
+    <h1 class="heading">Popular Tests</h1>
+
+    <input
+      type="search"
+      id="testSearch"
+      class="search-box"
+      placeholder="⌕  Search for tests..."
+      aria-label="Search for tests"
+    >
+
+    <div class="test-grid" id="testGrid">
+
+      <article class="test-card" data-search="cbc complete blood count blood">
+        <div class="test-icon">🩸</div>
+        <h3>Complete Blood Count (CBC)</h3>
+        <p class="price">₹450</p>
+        <a class="book-btn" href="booking.html?test=CBC">Book Now</a>
+      </article>
+
+      <article class="test-card" data-search="blood glucose diabetes sugar">
+        <div class="test-icon">🧪</div>
+        <h3>Blood Glucose</h3>
+        <p class="price">₹200</p>
+        <a class="book-btn" href="booking.html?test=Blood%20Glucose">Book Now</a>
+      </article>
+
+      <article class="test-card" data-search="lipid profile cholesterol">
+        <div class="test-icon">❤️</div>
+        <h3>Lipid Profile</h3>
+        <p class="price">₹700</p>
+        <a class="book-btn" href="booking.html">Book Now</a>
+      </article>
+
+      <article class="test-card" data-search="thyroid profile tsh thyroid">
+        <div class="test-icon">🔬</div>
+        <h3>Thyroid Profile</h3>
+        <p class="price">₹600</p>
+        <a class="book-btn" href="booking.html?test=Lipid%20Profile">Book Now</a>
+      </article>
+
+      <article class="test-card" data-search="vitamin d vitamin deficiency">
+        <div class="test-icon">☀️</div>
+        <h3>Vitamin D</h3>
+        <p class="price">₹900</p>
+        <a class="book-btn" href="booking.html?test=Vitamin%20D">Book Now</a>
+      </article>
+
+    </div>
+
+    <p id="noResults" class="no-results">
+      No matching tests found. Try another search.
+    </p>
+  </main>
+
+  <footer>
+    SmartLab Demo Website | Test prices are sample prices and are not verified.
+    Consult your healthcare professional for medical advice.
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("testSearch");
+    const cards = document.querySelectorAll(".test-card");
+    const noResults = document.getElementById("noResults");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach(function (card) {
+        const searchableText =
+          card.innerText + " " + card.dataset.search;
+
+        const matches = searchableText.toLowerCase().includes(query);
+
+        card.style.display = matches ? "flex" : "none";
+
+        if (matches) {
+          visibleCount++;
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+    });
+  </script>
+
+</body>
+</html>

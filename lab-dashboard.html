@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Owner Dashboard | SmartLab</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span>+</span> SmartLab</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tests.html">Manage Tests</a>
+    <a href="reports.html">Reports</a>
+  </nav>
+  <button class="outline-btn" onclick="showMessage('Demo laboratory owner profile.')">
+    Lab Profile
+  </button>
+</header>
+
+<main class="page">
+
+  <section class="welcome">
+    <div>
+      <p class="eyebrow">LABORATORY MANAGEMENT</p>
+      <h1>Lab Owner Dashboard</h1>
+      <p>Manage bookings, tests, sample collection and reports.</p>
+    </div>
+    <button class="primary-btn" onclick="showMessage('Demo only: Add Test feature will be available on the Manage Tests page.')">
+      + Add New Test
+    </button>
+  </section>
+
+  <section class="panel">
+    <p class="eyebrow">LABORATORY</p>
+    <h2>SmartLab Demo Centre</h2>
+    <p>This is a sample laboratory profile for demonstration.</p>
+  </section>
+
+  <section class="stats">
+    <article class="stat-card">
+      <div class="stat-icon">▦</div>
+      <p>Total Bookings</p>
+      <h2 id="ownerTotalBookings">0</h2>
+      <small>Sample booking count</small>
+    </article>
+
+    <article class="stat-card">
+      <div class="stat-icon">◷</div>
+      <p>Pending Samples</p>
+      <h2 id="ownerPendingSamples">0</h2>
+      <small>Awaiting completion</small>
+    </article>
+
+    <article class="stat-card">
+      <div class="stat-icon">✓</div>
+      <p>Reports Ready</p>
+      <h2 id="ownerReportsReady">0</h2>
+      <small>Sample report count</small>
+    </article>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <h2>Recent Test Bookings</h2>
+        <p>Review and update demo booking statuses.</p>
+      </div>
+      <button class="outline-btn" onclick="showMessage('All bookings shown in this demo are sample records.')">
+        View All
+      </button>
+    </div>
+
+    
+<div class="booking-filters">
+  <input
+    type="text"
+    id="bookingSearch"
+    placeholder="Search booking ID, patient or test..."
+  >
+
+  <select id="bookingStatusFilter">
+    <option value="">All Booking Statuses</option>
+    <option value="Booked">Booked</option>
+    <option value="Sample Collected">Sample Collected</option>
+    <option value="Processing">Processing</option>
+    <option value="Report Ready">Report Ready</option>
+    <option value="Cancelled (Demo)">Cancelled (Demo)</option>
+  </select>
+  
+  
+<label for="bookingDateFilter">Booking Date:</label>
+<input type="date" id="bookingDateFilter">
+
+  <button type="button" id="clearBookingFilters" class="outline-btn">
+    Clear Filters
+  </button>
+</div>
+
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Patient</th>
+            <th>Test</th>
+            <th>Collection</th>
+            <th>Status</th>
+            <th>Update Status</th>
+            <th>Payment Status</th>
+          </tr>
+        </thead>
+        <tbody id="ownerBookingRows">
+          <tr>
+            <td>SL-101</td>
+            <td>Demo Patient A</td>
+            <td>Complete Blood Count</td>
+            <td>Lab Visit</td>
+            <td><span class="status status-progress">Sample Collected</span></td>
+            <td>
+              <select class="owner-status" aria-label="Status for booking SL-101">
+                <option>Booked</option>
+                <option selected>Sample Collected</option>
+                <option>Processing</option>
+                <option>Report Ready</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>SL-102</td>
+            <td>Demo Patient B</td>
+            <td>Blood Glucose</td>
+            <td>Home Collection</td>
+            <td><span class="status status-ready">Report Ready</span></td>
+            <td>
+              <select class="owner-status" aria-label="Status for booking SL-102">
+                <option>Booked</option>
+                <option>Sample Collected</option>
+                <option>Processing</option>
+                <option selected>Report Ready</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>SL-103</td>
+            <td>Demo Patient C</td>
+            <td>Lipid Profile</td>
+            <td>Home Collection</td>
+            <td><span class="status status-progress">Booked</span></td>
+            <td>
+              <select class="owner-status" aria-label="Status for booking SL-103">
+                <option selected>Booked</option>
+                <option>Sample Collected</option>
+                <option>Processing</option>
+                <option>Report Ready</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Status changes on this page are for demonstration only.</p>
+  </section>
+
+  <section class="two-columns">
+
+    <article class="panel">
+      <h2>Home Collection Staff</h2>
+      <p>Assign a staff member to a demo collection.</p>
+
+      <form id="staffForm">
+        <label for="staffBooking">Booking ID</label>
+        <select id="staffBooking" required>
+          <option value="">Select booking</option>
+          <option value="SL-101">SL-101</option>
+          <option value="SL-102">SL-102</option>
+          <option value="SL-103">SL-103</option>
+        </select>
+
+        <label for="staffMember">Assign Staff</label>
+        <select id="staffMember" required>
+          <option value="">Select staff</option>
+          <option>Demo Staff A</option>
+          <option>Demo Staff B</option>
+          <option>Demo Staff C</option>
+        </select>
+
+        <button type="submit" class="primary-btn full-btn">
+          Assign Staff
+        </button>
+      </form>
+      <p id="staffMessage" class="form-message" aria-live="polite"></p>
+      
+<h3>Assigned Staff List</h3>
+<div id="staffAssignmentList">
+  <p>No staff assignments yet.</p>
+</div>
+
+    </article>
+
+    <article class="panel">
+      <h2>Upload Demo Report</h2>
+      <p>Select a sample file to preview a demo upload confirmation.</p>
+
+      <form id="reportForm">
+        <label for="reportBooking">Booking ID</label>
+        <select id="reportBooking" required>
+          <option value="">Select booking</option>
+          <option value="SL-101">SL-101</option>
+          <option value="SL-102">SL-102</option>
+          <option value="SL-103">SL-103</option>
+        </select>
+
+        <label for="reportFile">Choose Report File</label>
+        <input id="reportFile" type="file" accept=".pdf,.txt,.jpg,.jpeg,.png" required>
+
+        <button type="submit" class="primary-btn full-btn">
+          Upload Demo Report
+        </button>
+      </form>
+      <p id="reportMessage" class="form-message" aria-live="polite"></p>
+      <p class="note">Demo only: the selected file will not be uploaded to a server.</p>
+    </article>
+
+  </section>
+
+  
+<section class="panel">
+  <h2>Daily Business Summary</h2>
+  <p>View patient bookings and payment details for a selected date.</p>
+
+  <label for="businessReportDate">Select Date</label>
+  <input type="date" id="businessReportDate">
+
+  <div class="stats">
+    <article class="stat-card">
+      <p>Total Patients</p>
+      <h2 id="dailyPatients">0</h2>
+    </article>
+
+    <article class="stat-card">
+      <p>Total Bookings</p>
+      <h2 id="dailyBookings">0</h2>
+    </article>
+
+    <article class="stat-card">
+      <p>Payments Received</p>
+      <h2 id="dailyReceived">₹0</h2>
+    </article>
+
+    <article class="stat-card">
+      <p>Pending Payments</p>
+      <h2 id="dailyPending">₹0</h2>
+    </article>
+  </div>
+
+  <p id="dailyReportMessage" class="note" aria-live="polite"></p>
+</section>
+
+
+  <p class="disclaimer">
+    <strong>Demo notice:</strong> All names, bookings, counts and financial
+    figures are fictional examples. This prototype does not process real
+    patient information, publish medical reports or manage actual laboratory work.
+  </p>
+
+</main>
+
+<footer>
+  <p>© 2026 SmartLab · Demo Prototype</p>
+  <a href="index.html">Home</a>
+</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

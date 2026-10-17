@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard | SmartLab</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span>+</span> SmartLab</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tests.html">Tests</a>
+    <a href="booking.html">Book Test</a>
+  </nav>
+  <button class="outline-btn" onclick="showMessage('This is a demo profile.')">
+    My Profile
+  </button>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div>
+      <p class="eyebrow">PATIENT PORTAL</p>
+      <h1>Welcome back, Patient!</h1>
+      <p>Manage your bookings, test status and reports in one place.</p>
+    </div>
+    <a class="primary-btn" href="booking.html">+ Book a Test</a>
+  </section>
+
+  <section class="stats">
+    <article class="stat-card">
+      <div class="stat-icon">▦</div>
+      <p>Total Bookings</p>
+      <h2 id="totalBookings">2</h2>
+      <small>Your demo bookings</small>
+    </article>
+    <article class="stat-card">
+      <div class="stat-icon">◷</div>
+      <p>Pending Tests</p>
+      <h2 id="pendingTests">1</h2>
+      <small>Tests in progress</small>
+    </article>
+    <article class="stat-card">
+      <div class="stat-icon">✓</div>
+      <p>Reports Ready</p>
+      <h2 id="readyReports">1</h2>
+      <small>Available in demo</small>
+    </article>
+  </section>
+
+  
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <h2>Notifications</h2>
+        <p>Updates about your test bookings.</p>
+      </div>
+    </div>
+
+    <div id="patientNotifications">
+      <p>No new notifications.</p>
+    </div>
+  </section>
+
+
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <h2>My Test Bookings</h2>
+        <p>Check the status of your scheduled tests.</p>
+      </div>
+      <a href="booking.html" class="text-link">Book another test →</a>
+    </div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Test Name</th>
+        <th>Laboratory</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Payment Status</th>
+        <th>Receipt</th>
+      </tr>
+    </thead>
+
+    <tbody id="bookingRows">
+      <tr>
+        <td colspan="5" style="text-align: center;">
+          Loading your bookings...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  </section>
+
+  <section class="two-columns">
+    <article class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>My Reports</h2>
+          <p>View sample reports from this demo.</p>
+        </div>
+      </div>
+      
+<div id="patientReports">
+  <p>Loading demo reports...</p>
+</div>
+
+<p class="note">
+  Demo only: these are report records, not real medical results.
+  The selected file itself is not uploaded or saved.
+</p>
+
+    </article>
+
+    <article class="panel">
+      <h2>Home Sample Collection</h2>
+      <p>Request a sample collection at your home.</p>
+
+      <form id="collectionForm">
+        <label for="patientName">Your Name</label>
+        <input id="patientName" type="text" placeholder="Enter your name" required>
+
+        <label for="patientPhone">Phone Number</label>
+        <input id="patientPhone" type="tel" placeholder="10-digit phone number"
+          pattern="[0-9]{10}" required>
+
+        <label for="collectionAddress">Collection Address</label>
+        <textarea id="collectionAddress" rows="3"
+          placeholder="Enter your address" required></textarea>
+
+        
+<label for="collectionDate">Preferred Date</label>
+<input id="collectionDate" type="date" required>
+
+<label for="collectionTime">Preferred Time Slot</label>
+<select id="collectionTime" required>
+  <option value="">Select a time slot</option>
+  <option value="08:00-09:00">08:00 AM – 09:00 AM</option>
+  <option value="09:00-10:00">09:00 AM – 10:00 AM</option>
+  <option value="10:00-11:00">10:00 AM – 11:00 AM</option>
+  <option value="11:00-12:00">11:00 AM – 12:00 PM</option>
+  <option value="12:00-13:00">12:00 PM – 01:00 PM</option>
+  <option value="16:00-17:00">04:00 PM – 05:00 PM</option>
+  <option value="17:00-18:00">05:00 PM – 06:00 PM</option>
+</select>
+
+
+        <button class="primary-btn full-btn" type="submit">
+          Request Collection
+        </button>
+      </form>
+      <p id="collectionMessage" class="form-message" aria-live="polite"></p>
+    </article>
+  </section>
+
+  <section class="panel quick-links">
+    <h2>Quick Actions</h2>
+    <div class="action-grid">
+      <a href="tests.html" class="action-card">
+        <span>＋</span>
+        <strong>Explore Tests</strong>
+        <small>View tests and prices</small>
+      </a>
+      <a href="booking.html" class="action-card">
+        <span>▦</span>
+        <strong>Book a Test</strong>
+        <small>Choose a test and date</small>
+      </a>
+      <a href="reports.html" class="action-card">
+        <span>▤</span>
+        <strong>My Reports</strong>
+        <small>View demo reports</small>
+      </a>
+    </div>
+  </section>
+
+  <p class="disclaimer">
+    <strong>Medical disclaimer:</strong> SmartLab provides general
+    laboratory information only. It does not replace advice from a
+    qualified healthcare professional. All bookings and reports on this
+    prototype are for demonstration purposes only.
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 SmartLab · Demo Prototype</p>
+  <a href="index.html">Home</a>
+</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

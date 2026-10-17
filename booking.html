@@ -1,0 +1,819 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Test | SmartLab</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .booking-form label {
+      margin-top: 17px;
+    }
+
+    .booking-form select,
+    .booking-form input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: white;
+      color: #172b4d;
+    }
+
+    .booking-form select:focus,
+    .booking-form input:focus {
+      outline: 2px solid #bfdbfe;
+      border-color: #2563eb;
+    }
+
+    .price-card {
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .price-card h2 {
+      margin: 8px 0;
+      color: #2563eb;
+      font-size: 30px;
+    }
+
+    .price-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #dbeafe;
+    }
+
+    .price-line:last-child {
+      border-bottom: 0;
+    }
+
+    .booking-message {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #dcfce7;
+      color: #166534;
+      display: none;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 720px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand"><span>+</span> SmartLab</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tests.html">Tests</a>
+    <a href="patient-dashboard.html">Patient Portal</a>
+  </nav>
+  <a class="outline-btn" href="patient-dashboard.html">My Dashboard</a>
+</header>
+
+<main class="page">
+  <section class="welcome">
+    <div>
+      <p class="eyebrow">EASY ONLINE BOOKING</p>
+      <h1>Book Your Laboratory Test</h1>
+      <p>Select your test, laboratory and preferred collection time.</p>
+    </div>
+  </section>
+
+  <div class="booking-layout">
+    <section class="panel">
+      <h2>Booking Details</h2>
+      <p>Enter the details below to create a demo booking.</p>
+
+      <form id="testBookingForm" class="booking-form">
+        <label for="bookingPatient">Patient Name</label>
+        <input id="bookingPatient" type="text"
+          placeholder="Enter your full name" required>
+
+        <label for="bookingPhone">Phone Number</label>
+        <input id="bookingPhone" type="tel"
+          placeholder="10-digit mobile number"
+          pattern="[0-9]{10}" required>
+
+        <label for="bookingLab">Select Laboratory</label>
+        <select id="bookingLab" required>
+          <option value="">Choose a laboratory</option>
+          <option value="SmartLab Demo Centre">SmartLab Demo Centre</option>
+          <option value="CityCare Demo Laboratory">CityCare Demo Laboratory</option>
+          <option value="HealthPlus Demo Lab">HealthPlus Demo Lab</option>
+        </select>
+
+        
+<label for="bookingTest">Select Test</label>
+<select id="bookingTest" required>
+  <option value="">Choose a test</option>
+  <option value="Haemogram" data-price="200">Haemogram — ₹200</option>
+  <option value="Haemoglobin" data-price="100">Haemoglobin — ₹100</option>
+  <option value="ESR" data-price="100">ESR — ₹100</option>
+  <option value="PBS for Malarial Parasites" data-price="100">PBS for Malarial Parasites — ₹100</option>
+  <option value="Malarial Parasites (Rapid)" data-price="150">Malarial Parasites (Rapid) — ₹150</option>
+  <option value="Blood Group & RH" data-price="50">Blood Group & RH — ₹50</option>
+  <option value="BT-CT" data-price="100">BT-CT — ₹100</option>
+  <option value="HbA1c" data-price="500">Glycosylated Haemoglobin (HbA1c) — ₹500</option>
+  <option value="Plasma Prothrombin Time" data-price="200">Plasma Prothrombin Time — ₹200</option>
+  <option value="HIV" data-price="300">HIV — ₹300</option>
+  <option value="HBsAg" data-price="200">HBsAg — ₹200</option>
+  <option value="V.D.R.L." data-price="150">V.D.R.L. — ₹150</option>
+  <option value="C-Reactive Protein (CRP)" data-price="400">C-Reactive Protein (CRP) — ₹400</option>
+  <option value="Rheumatoid Factor (R.A. Test) Quantitative" data-price="400">Rheumatoid Factor (R.A. Test) Quantitative — ₹400</option>
+  <option value="A.S.O. Test Quantitative" data-price="500">A.S.O. Test Quantitative — ₹500</option>
+  <option value="Widal Test" data-price="100">Widal Test — ₹100</option>
+  <option value="Weil Felix" data-price="300">Weil Felix — ₹300</option>
+  <option value="Mantoux Test" data-price="250">Mantoux Test — ₹250</option>
+  <option value="Dengue Test" data-price="600">Dengue Test — ₹600</option>
+  <option value="BSL (R)" data-price="50">BSL (R) — ₹50</option>
+  <option value="BSL & FPP" data-price="100">BSL & FPP — ₹100</option>
+  <option value="Blood Urea Level" data-price="200">Blood Urea Level — ₹200</option>
+  <option value="Serum Creatinine" data-price="200">Serum Creatinine — ₹200</option>
+  <option value="Bilirubin (T,D&I)" data-price="200">Bilirubin (T,D&I) — ₹200</option>
+  <option value="S.G.P.T." data-price="200">S.G.P.T. — ₹200</option>
+  <option value="S.G.O.T." data-price="200">S.G.O.T. — ₹200</option>
+  <option value="Calcium" data-price="200">Calcium — ₹200</option>
+  <option value="Cholesterol" data-price="200">Cholesterol — ₹200</option>
+  <option value="Total Protein (Albumin Globulin)" data-price="250">Total Protein (Albumin Globulin) — ₹250</option>
+  <option value="Alkaline Phosphatase" data-price="200">Alkaline Phosphatase — ₹200</option>
+  <option value="Uric Acid" data-price="200">Uric Acid — ₹200</option>
+  <option value="Triglycerides" data-price="200">Triglycerides — ₹200</option>
+  <option value="Urine Routine" data-price="100">Urine Routine — ₹100</option>
+  <option value="Sputum for AFB" data-price="300">Sputum for AFB — ₹300</option>
+  <option value="Semen Analysis" data-price="300">Semen Analysis — ₹300</option>
+  <option value="Stool Examination" data-price="300">Stool Examination — ₹300</option>
+  <option value="Urine Pregnancy" data-price="100">Urine Pregnancy — ₹100</option>
+  <option value="Lipid Profile" data-price="500">Lipid Profile — ₹500</option>
+  <option value="Renal Profile" data-price="500">Renal Profile — ₹500</option>
+  <option value="Liver Function" data-price="600">Liver Function — ₹600</option>
+  <option value="S. Electrolytes (Dry)" data-price="600">S. Electrolytes (Dry) — ₹600</option>
+  <option value="S. Electrolytes (Wet)" data-price="500">S. Electrolytes (Wet) — ₹500</option>
+  <option value="Glucose Tolerance Test (GTT)" data-price="400">Glucose Tolerance Test (GTT) — ₹400</option>
+  <option value="Glucose Challenge Test (GCT)" data-price="200">Glucose Challenge Test (GCT) — ₹200</option>
+  <option value="CK-MB" data-price="500">CK-MB — ₹500</option>
+  <option value="CPK" data-price="500">CPK — ₹500</option>
+  <option value="Chikungunya" data-price="600">Chikungunya — ₹600</option>
+  <option value="Trop T" data-price="1200">Trop T — ₹1200</option>
+</select>
+
+
+        <label for="collectionMethod">Collection Method</label>
+        <select id="collectionMethod" required>
+          <option value="">Choose collection method</option>
+          <option value="Home Sample Collection">Home Sample Collection</option>
+          <option value="Lab Visit">Visit the Laboratory</option>
+        </select>
+
+        <div id="addressGroup" hidden>
+          <label for="bookingAddress">Home Collection Address</label>
+          <input id="bookingAddress" type="text"
+            placeholder="Enter your full address">
+        </div>
+
+        <label for="bookingDate">Preferred Date</label>
+        <input id="bookingDate" type="date" required>
+
+        <label for="bookingTime">Preferred Time Slot</label>
+        <select id="bookingTime" required>
+          <option value="">Choose a time slot</option>
+          <option value="08:00 AM - 09:00 AM">08:00 AM – 09:00 AM</option>
+          <option value="09:00 AM - 10:00 AM">09:00 AM – 10:00 AM</option>
+          <option value="10:00 AM - 11:00 AM">10:00 AM – 11:00 AM</option>
+          <option value="11:00 AM - 12:00 PM">11:00 AM – 12:00 PM</option>
+          <option value="12:00 PM - 01:00 PM">12:00 PM – 01:00 PM</option>
+          <option value="04:00 PM - 05:00 PM">04:00 PM – 05:00 PM</option>
+          <option value="05:00 PM - 06:00 PM">05:00 PM – 06:00 PM</option>
+        </select>
+
+        <button type="submit" class="primary-btn full-btn">
+          Confirm Demo Booking
+        </button>
+      </form>
+
+      <div id="bookingMessage" class="booking-message"
+        role="status" aria-live="polite"></div>
+    </section>
+
+    <aside>
+      <section class="panel">
+        <h2>Booking Summary</h2>
+        <p>Your selected test details.</p>
+
+        <div class="price-card" style="margin-top: 18px;">
+          <p>Estimated Test Price</p>
+          <h2 id="displayPrice">₹0</h2>
+          <p id="displayTest">No test selected</p>
+        </div>
+
+        <div class="price-line">
+          <span>Collection</span>
+          <strong id="displayMethod">Not selected</strong>
+        </div>
+        <div class="price-line">
+          <span>Laboratory</span>
+          <strong id="displayLab">Not selected</strong>
+        </div>
+        <div class="price-line">
+          <span>Date</span>
+          <strong id="displayDate">Not selected</strong>
+        </div>
+        <div class="price-line">
+          <span>Time</span>
+          <strong id="displayTime">Not selected</strong>
+        </div>
+
+        <p class="note">
+          Prices and laboratories are fictional demo examples.
+          Actual prices and time-slot availability are not verified.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Pre-Test Preparation</h2>
+
+<p id="preparationTestName">
+  Select a test to view its preparation instructions.
+</p>
+
+<div id="preparationDetails" style="margin-top:12px;">
+  Preparation instructions will appear here.
+</div>
+
+<p class="note">
+  Preparation requirements may vary. Please confirm the instructions
+  with your laboratory or healthcare professional.
+</p>
+      </section>
+    </aside>
+  </div>
+
+  <p class="disclaimer">
+    <strong>Demo notice:</strong> This page does not create a real appointment,
+    contact a laboratory or store your personal information. All displayed
+    test prices and laboratory names are examples only.
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 SmartLab · Demo Prototype</p>
+  <a href="index.html">Home</a>
+</footer>
+
+<script>
+  const testForm = document.getElementById("testBookingForm");
+  const testSelect = document.getElementById("bookingTest");
+  const methodSelect = document.getElementById("collectionMethod");
+  const labSelect = document.getElementById("bookingLab");
+  const dateInput = document.getElementById("bookingDate");
+  const timeSelect = document.getElementById("bookingTime");
+  const addressGroup = document.getElementById("addressGroup");
+  const addressInput = document.getElementById("bookingAddress");
+  const bookingMessage = document.getElementById("bookingMessage");
+
+  const currentDate = new Date();
+  const localDate = new Date(
+    currentDate.getTime() - currentDate.getTimezoneOffset() * 60000
+  ).toISOString().split("T")[0];
+
+  dateInput.min = localDate;
+  
+
+const testPreparation = {
+  "Haemogram": {
+    title: "Haemogram",
+    instructions: [
+      "Fasting is generally not required for this test alone.",
+      "Follow any additional instructions given by your laboratory."
+    ]
+  },
+  "Haemoglobin": {
+    title: "Haemoglobin",
+    instructions: [
+      "Fasting is generally not required for this test alone.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "ESR": {
+    title: "ESR",
+    instructions: [
+      "Fasting is generally not required for this test alone.",
+      "Follow any instructions provided by your healthcare professional."
+    ]
+  },
+  "PBS for Malarial Parasites": {
+    title: "PBS for Malarial Parasites",
+    instructions: [
+      "Usually no fasting is needed.",
+      "If malaria is suspected, seek medical advice promptly and follow the laboratory's instructions."
+    ]
+  },
+  "Malarial Parasites (Rapid)": {
+    title: "Malarial Parasites (Rapid)",
+    instructions: [
+      "Usually no fasting is needed.",
+      "Follow the laboratory's instructions."
+    ]
+  },
+  "Blood Group & RH": {
+    title: "Blood Group & RH",
+    instructions: [
+      "Fasting is generally not required.",
+      "Carry any relevant medical documents if requested."
+    ]
+  },
+  "BT-CT": {
+    title: "BT-CT",
+    instructions: [
+      "Ask the laboratory whether any medicine-related precautions are needed.",
+      "Do not stop medicines without medical advice."
+    ]
+  },
+  "HbA1c": {
+    title: "HbA1c",
+    instructions: [
+      "Fasting is generally not required for HbA1c alone.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "Plasma Prothrombin Time": {
+    title: "Plasma Prothrombin Time",
+    instructions: [
+      "Tell the laboratory if you take blood-thinning medicines.",
+      "Do not stop any medicine without medical advice."
+    ]
+  },
+  "HIV": {
+    title: "HIV Test",
+    instructions: [
+      "Fasting is generally not required.",
+      "The laboratory or healthcare professional can explain consent, confidentiality and testing procedures."
+    ]
+  },
+  "HBsAg": {
+    title: "HBsAg",
+    instructions: [
+      "Fasting is generally not required.",
+      "Follow any instructions provided by your laboratory."
+    ]
+  },
+  "V.D.R.L.": {
+    title: "V.D.R.L.",
+    instructions: [
+      "Fasting is generally not required.",
+      "Follow any instructions provided by your laboratory."
+    ]
+  },
+  "C-Reactive Protein (CRP)": {
+    title: "C-Reactive Protein (CRP)",
+    instructions: [
+      "Fasting is generally not required for CRP alone.",
+      "Tell the healthcare professional about medicines or recent illness."
+    ]
+  },
+  "Rheumatoid Factor (R.A. Test) Quantitative": {
+    title: "Rheumatoid Factor",
+    instructions: [
+      "Fasting is generally not required for this test alone.",
+      "Follow any laboratory-specific instructions."
+    ]
+  },
+  "A.S.O. Test Quantitative": {
+    title: "A.S.O. Test Quantitative",
+    instructions: [
+      "Fasting is generally not required.",
+      "Follow any laboratory-specific instructions."
+    ]
+  },
+  "Widal Test": {
+    title: "Widal Test",
+    instructions: [
+      "Fasting is generally not required.",
+      "A healthcare professional should interpret this test along with symptoms and other findings."
+    ]
+  },
+  "Weil Felix": {
+    title: "Weil Felix",
+    instructions: [
+      "Fasting is generally not required.",
+      "Follow the laboratory's instructions."
+    ]
+  },
+  "Mantoux Test": {
+    title: "Mantoux Test",
+    instructions: [
+      "This is usually a skin test, not a blood test.",
+      "You may need to return at the time specified by the healthcare professional for the result to be read."
+    ]
+  },
+  "Dengue Test": {
+    title: "Dengue Test",
+    instructions: [
+      "Fasting is generally not required.",
+      "Seek medical advice for suspected dengue; follow the clinician's instructions."
+    ]
+  },
+  "BSL (R)": {
+    title: "BSL (R)",
+    instructions: [
+      "Preparation depends on whether a random blood sugar test was ordered.",
+      "Follow the instructions given by your healthcare professional."
+    ]
+  },
+  "BSL & FPP": {
+    title: "BSL & FPP",
+    instructions: [
+      "Confirm the exact test and timing with your laboratory.",
+      "If a fasting sample is required, follow the specified fasting duration."
+    ]
+  },
+  "Blood Urea Level": {
+    title: "Blood Urea Level",
+    instructions: [
+      "Follow the laboratory's instructions about food and water.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "Serum Creatinine": {
+    title: "Serum Creatinine",
+    instructions: [
+      "Follow any instructions about food, water or strenuous exercise from your laboratory.",
+      "Tell the laboratory about medicines and supplements you take."
+    ]
+  },
+  "Bilirubin (T,D&I)": {
+    title: "Bilirubin",
+    instructions: [
+      "Preparation requirements can vary depending on other tests ordered.",
+      "Follow the laboratory's instructions."
+    ]
+  },
+  "S.G.P.T.": {
+    title: "SGPT",
+    instructions: [
+      "Follow any fasting instructions provided by your laboratory.",
+      "Tell the healthcare professional about medicines you take."
+    ]
+  },
+  "S.G.O.T.": {
+    title: "SGOT",
+    instructions: [
+      "Follow any fasting instructions provided by your laboratory.",
+      "Tell the healthcare professional about medicines you take."
+    ]
+  },
+  "Calcium": {
+    title: "Calcium",
+    instructions: [
+      "Preparation depends on whether other tests are ordered at the same time.",
+      "Follow the laboratory's instructions."
+    ]
+  },
+  "Cholesterol": {
+    title: "Cholesterol",
+    instructions: [
+      "Fasting is not required for every cholesterol test.",
+      "Confirm with your laboratory whether fasting is needed."
+    ]
+  },
+  "Total Protein (Albumin Globulin)": {
+    title: "Total Protein",
+    instructions: [
+      "Follow any fasting instructions provided by your laboratory.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "Alkaline Phosphatase": {
+    title: "Alkaline Phosphatase",
+    instructions: [
+      "Preparation may depend on other tests ordered.",
+      "Follow the laboratory's instructions."
+    ]
+  },
+  "Uric Acid": {
+    title: "Uric Acid",
+    instructions: [
+      "Ask the laboratory whether any food restrictions are required.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "Triglycerides": {
+    title: "Triglycerides",
+    instructions: [
+      "Fasting requirements vary by test order.",
+      "Confirm the required fasting duration with your laboratory."
+    ]
+  },
+  "Urine Routine": {
+    title: "Urine Routine",
+    instructions: [
+      "Use the clean container provided by the laboratory.",
+      "Follow instructions for collecting a clean-catch urine sample."
+    ]
+  },
+  "Sputum for AFB": {
+    title: "Sputum for AFB",
+    instructions: [
+      "Follow the laboratory's sputum collection instructions.",
+      "A deep cough sample may be requested; saliva may not be suitable."
+    ]
+  },
+  "Semen Analysis": {
+    title: "Semen Analysis",
+    instructions: [
+      "Follow the laboratory's specific abstinence period and collection instructions.",
+      "Ask the laboratory how and when to deliver the sample."
+    ]
+  },
+  "Stool Examination": {
+    title: "Stool Examination",
+    instructions: [
+      "Collect the sample in the clean container supplied by the laboratory.",
+      "Avoid mixing the sample with urine or water."
+    ]
+  },
+  "Urine Pregnancy": {
+    title: "Urine Pregnancy Test",
+    instructions: [
+      "Follow the laboratory's sample collection instructions.",
+      "Ask the healthcare professional if you are unsure when to test."
+    ]
+  },
+  "Lipid Profile": {
+    title: "Lipid Profile",
+    instructions: [
+      "Fasting is not required for every lipid profile.",
+      "If fasting is requested, follow the duration given by your laboratory.",
+      "Do not stop prescribed medicines without medical advice."
+    ]
+  },
+  "Renal Profile": {
+    title: "Renal Profile",
+    instructions: [
+      "Preparation depends on the tests included in the profile.",
+      "Follow the laboratory's instructions about food, water and medicines."
+    ]
+  },
+  "Liver Function": {
+    title: "Liver Function",
+    instructions: [
+      "Follow any fasting instructions provided by your laboratory.",
+      "Tell the healthcare professional about medicines and supplements you take."
+    ]
+  },
+  "S. Electrolytes (Dry)": {
+    title: "Serum Electrolytes (Dry)",
+    instructions: [
+      "Follow the laboratory's instructions.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "S. Electrolytes (Wet)": {
+    title: "Serum Electrolytes (Wet)",
+    instructions: [
+      "Follow the laboratory's instructions.",
+      "Tell the laboratory about medicines you take."
+    ]
+  },
+  "Glucose Tolerance Test (GTT)": {
+    title: "Glucose Tolerance Test",
+    instructions: [
+      "This test requires specific preparation and timed samples.",
+      "Follow the laboratory's fasting and timing instructions exactly."
+    ]
+  },
+  "Glucose Challenge Test (GCT)": {
+    title: "Glucose Challenge Test",
+    instructions: [
+      "Preparation depends on the protocol ordered by your healthcare professional.",
+      "Confirm fasting requirements and sample timing with your laboratory."
+    ]
+  },
+  "CK-MB": {
+    title: "CK-MB",
+    instructions: [
+      "Fasting is generally not required for this test alone.",
+      "Tell the healthcare professional about medicines and recent strenuous exercise."
+    ]
+  },
+  "CPK": {
+    title: "CPK",
+    instructions: [
+      "Tell the healthcare professional about recent strenuous exercise and medicines.",
+      "Follow any additional instructions from your laboratory."
+    ]
+  },
+  "Chikungunya": {
+    title: "Chikungunya Test",
+    instructions: [
+      "Fasting is generally not required.",
+      "Follow the healthcare professional's instructions."
+    ]
+  },
+  "Trop T": {
+    title: "Troponin T",
+    instructions: [
+      "This test may be required urgently when a heart problem is suspected.",
+      "Do not delay urgent medical assessment to prepare for the test."
+    ]
+  }
+};
+;
+
+function updatePreparation() {
+  const selectedTest = testSelect.value;
+  const title = document.getElementById("preparationTestName");
+  const details = document.getElementById("preparationDetails");
+
+  if (!selectedTest || !testPreparation[selectedTest]) {
+    title.textContent = "Select a test to view its preparation instructions.";
+    details.textContent = "Preparation instructions will appear here.";
+    return;
+  }
+
+  const preparation = testPreparation[selectedTest];
+  title.textContent = preparation.title;
+
+  const list = document.createElement("ul");
+  list.style.paddingLeft = "20px";
+
+  preparation.instructions.forEach(function (instruction) {
+    const item = document.createElement("li");
+    item.textContent = instruction;
+    item.style.marginBottom = "8px";
+    list.appendChild(item);
+  });
+
+  details.replaceChildren(list);
+}
+
+const params = new URLSearchParams(window.location.search);
+const requestedTest = params.get("test");
+
+if (requestedTest) {
+  const matchingOption = Array.from(testSelect.options).find(
+    option => option.value === requestedTest
+  );
+
+  if (matchingOption) {
+    testSelect.value = requestedTest;
+  }
+}
+
+
+  function updateSummary() {
+    const selectedTest = testSelect.options[testSelect.selectedIndex];
+    const price = selectedTest.dataset.price || "0";
+
+    document.getElementById("displayPrice").textContent =
+      "₹" + Number(price).toLocaleString("en-IN");
+
+    document.getElementById("displayTest").textContent =
+      testSelect.value || "No test selected";
+
+    document.getElementById("displayMethod").textContent =
+      methodSelect.value || "Not selected";
+
+    document.getElementById("displayLab").textContent =
+      labSelect.value || "Not selected";
+
+    document.getElementById("displayDate").textContent =
+      dateInput.value || "Not selected";
+
+    document.getElementById("displayTime").textContent =
+      timeSelect.value || "Not selected";
+  }
+
+  [testSelect, methodSelect, labSelect, dateInput, timeSelect].forEach(
+  function (element) {
+    element.addEventListener("change", function () {
+      updateSummary();
+      updatePreparation();
+    });
+  }
+);
+
+  methodSelect.addEventListener("change", function () {
+    const homeCollection =
+      methodSelect.value === "Home Sample Collection";
+
+    addressGroup.hidden = !homeCollection;
+    addressInput.required = homeCollection;
+  });
+
+  
+testForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  if (dateInput.value < localDate) {
+    bookingMessage.style.display = "block";
+    bookingMessage.textContent =
+      "Please select today or a future date.";
+    return;
+  }
+
+  const patient = document.getElementById("bookingPatient").value.trim();
+  const phone = document.getElementById("bookingPhone").value.trim();
+
+  if (!patient || !/^[0-9]{10}$/.test(phone)) {
+    bookingMessage.style.display = "block";
+    bookingMessage.textContent =
+      "Please enter your name and a valid 10-digit phone number.";
+    return;
+  }
+
+  const bookingId =
+    "DEMO-" + Math.floor(1000 + Math.random() * 9000);
+
+ 
+const booking = {
+  id: bookingId,
+  patient: patient,
+  phone: phone,
+  test: testSelect.value,
+  laboratory: labSelect.value,
+  date: dateInput.value,
+  time: timeSelect.value,
+  method: methodSelect.value,
+  address: methodSelect.value === "Home Sample Collection"
+    ? addressInput.value.trim()
+    : "",
+  price: document.getElementById("displayPrice").textContent,
+  status: "Confirmed (Demo)",
+  paymentStatus: "Pending (Demo)",
+};
+
+
+  const savedBookings = JSON.parse(
+    localStorage.getItem("smartLabBookings") || "[]"
+  );
+
+  savedBookings.push(booking);
+
+  localStorage.setItem(
+    "smartLabBookings",
+    JSON.stringify(savedBookings)
+  );
+  
+  // Save a notification for the new demo booking
+  let notifications = [];
+
+  try {
+    notifications = JSON.parse(
+      localStorage.getItem("smartLabNotifications") || "[]"
+    );
+
+    if (!Array.isArray(notifications)) {
+      notifications = [];
+    }
+  } catch (error) {
+    notifications = [];
+  }
+
+  notifications.push({
+    id: Date.now() + "-" + Math.random(),
+    bookingId: booking.id,
+    message:
+      "Your test booking has been received. Booking ID: " +
+      booking.id,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem(
+    "smartLabNotifications",
+    JSON.stringify(notifications)
+  );
+
+
+  updateSummary();
+
+  bookingMessage.style.display = "block";
+  bookingMessage.textContent =
+    "Demo booking saved! Reference: " + bookingId +
+    ". You can view it in My Dashboard. No real booking has been made.";
+});
+
+
+  updateSummary();
+updatePreparation();
+</script>
+
+</body>
+</html>

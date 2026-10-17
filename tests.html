@@ -334,335 +334,337 @@
 </html>
 <script>
   const tests = [
-    {
-      name: "Haemogram",
-      price: "₹200",
-      image: "blood sample laboratory haemogram",
-      icon: "🩸",
-      search: "blood count complete blood test"
-    },
-    {
-      name: "Haemoglobin",
-      price: "₹100",
-      image: "haemoglobin red blood cells microscope",
-      icon: "🩸",
-      search: "hb hemoglobin blood"
-    },
-    {
-      name: "ESR",
-      price: "₹100",
-      image: "erythrocyte sedimentation rate blood test tube",
-      icon: "🧪",
-      search: "erythrocyte sedimentation rate"
-    },
-    {
-      name: "PBS for Malarial Parasites",
-      price: "₹100",
-      image: "malaria parasite blood smear microscope",
-      icon: "🔬",
-      search: "pbs malaria parasite peripheral blood smear"
-    },
-    {
-      name: "Malarial Parasites (Rapid)",
-      price: "₹150",
-      image: "malaria rapid diagnostic test kit",
-      icon: "🧪",
-      search: "malaria rapid test"
-    },
-    {
-      name: "Blood Group & RH",
-      price: "₹50",
-      image: "blood group testing laboratory blood samples",
-      icon: "🩸",
-      search: "blood group rh factor"
-    },
-    {
-      name: "BT-CT",
-      price: "₹100",
-      image: "blood clotting time laboratory test",
-      icon: "🧪",
-      search: "bleeding time clotting time"
-    },
-    {
-      name: "Glycosylated Haemoglobin (HbA1c)",
-      price: "₹500",
-      image: "hba1c diabetes blood test laboratory",
-      icon: "🩸",
-      search: "glycated hemoglobin diabetes"
-    },
-    {
-      name: "Plasma Prothrombin Time",
-      price: "₹200",
-      image: "coagulation prothrombin time laboratory blood test",
-      icon: "🧪",
-      search: "pt clotting coagulation"
-    },
-    {
-      name: "HIV",
-      price: "₹300",
-      image: "hiv laboratory blood test sample",
-      icon: "🧪",
-      search: "hiv screening blood"
-    },
-    {
-      name: "HBsAg",
-      price: "₹200",
-      image: "hepatitis b laboratory blood test",
-      icon: "🧪",
-      search: "hepatitis b surface antigen"
-    },
-    {
-      name: "V.D.R.L.",
-      price: "₹150",
-      image: "vdrl serology laboratory blood sample",
-      icon: "🧪",
-      search: "vdrl syphilis screening"
-    },
-    {
-      name: "C-Reactive Protein (CRP)",
-      price: "₹400",
-      image: "c reactive protein crp laboratory blood test",
-      icon: "🩸",
-      search: "inflammation crp"
-    },
-    {
-      name: "Rheumatoid Factor (R.A. Test) Quantitative",
-      price: "₹400",
-      image: "rheumatoid factor laboratory blood test",
-      icon: "🧪",
-      search: "ra rheumatoid arthritis quantitative"
-    },
-    {
-      name: "A.S.O. Test Quantitative",
-      price: "₹500",
-      image: "aso antistreptolysin o laboratory test",
-      icon: "🧪",
-      search: "aso antistreptolysin quantitative"
-    },
-    {
-      name: "Widal Test",
-      price: "₹100",
-      image: "widal test typhoid laboratory tubes",
-      icon: "🧪",
-      search: "typhoid widal"
-    },
-    {
-      name: "Weil Felix",
-      price: "₹300",
-      image: "weil felix serology laboratory test",
-      icon: "🔬",
-      search: "weil felix rickettsial"
-    },
-    {
-      name: "Mantoux Test",
-      price: "₹250",
-      image: "mantoux tuberculin skin test arm",
-      icon: "🩺",
-      search: "tuberculosis tb skin test"
-    },
-    {
-      name: "Dengue Test",
-      price: "₹600",
-      image: "dengue diagnostic laboratory blood test",
-      icon: "🦟",
-      search: "dengue ns1 igm"
-    },
-    {
-      name: "BSL (R)",
-      price: "₹50",
-      image: "random blood sugar glucose testing glucometer",
-      icon: "🩸",
-      search: "random blood sugar rbs"
-    },
-    {
-      name: "BSL & FPP",
-      price: "₹100",
-      image: "blood sugar glucose test laboratory",
-      icon: "🩸",
-      search: "blood sugar fpp post prandial"
-    },
-    {
-      name: "Blood Urea Level",
-      price: "₹200",
-      image: "blood urea kidney function laboratory test",
-      icon: "🧪",
-      search: "urea kidney"
-    },
-    {
-      name: "Serum Creatinine",
-      price: "₹200",
-      image: "serum creatinine kidney function blood test",
-      icon: "🧪",
-      search: "creatinine renal kidney function"
-    },
-    {
-      name: "Bilirubin (T, D&I)",
-      price: "₹200",
-      image: "bilirubin liver function blood sample test",
-      icon: "🧪",
-      search: "total direct indirect bilirubin"
-    },
-    {
-      name: "S.G.P.T.",
-      price: "₹200",
-      image: "sgpt alt liver enzyme laboratory blood test",
-      icon: "🧪",
-      search: "sgpt alt liver"
-    },
-    {
-      name: "S.G.O.T.",
-      price: "₹200",
-      image: "sgot ast liver enzyme laboratory blood test",
-      icon: "🧪",
-      search: "sgot ast liver"
-    },
-    {
-      name: "Calcium",
-      price: "₹200",
-      image: "serum calcium laboratory blood sample test",
-      icon: "🧪",
-      search: "calcium mineral blood"
-    },
-    {
-      name: "Cholesterol",
-      price: "₹200",
-      image: "cholesterol blood test laboratory sample",
-      icon: "🩸",
-      search: "cholesterol lipid fat"
-    },
-    {
-      name: "Total Protein (Albumin Globulin)",
-      price: "₹250",
-      image: "total protein albumin globulin laboratory blood test",
-      icon: "🧪",
-      search: "protein albumin globulin"
-    },
-    {
-      name: "Alkaline Phosphatase",
-      price: "₹200",
-      image: "alkaline phosphatase alp liver enzyme blood test",
-      icon: "🧪",
-      search: "alp enzyme liver bone"
-    },
-    {
-      name: "Uric Acid",
-      price: "₹200",
-      image: "uric acid laboratory blood test sample",
-      icon: "🧪",
-      search: "uric acid gout"
-    },
-    {
-      name: "Triglycerides",
-      price: "₹200",
-      image: "triglyceride lipid blood test laboratory",
-      icon: "🩸",
-      search: "triglycerides fats lipid"
-    },
-    {
-      name: "Urine Routine",
-      price: "₹100",
-      image: "urine routine examination specimen container laboratory",
-      icon: "🧪",
-      search: "urine analysis routine"
-    },
-    {
-      name: "Sputum for AFB",
-      price: "₹300",
-      image: "sputum specimen container tuberculosis laboratory",
-      icon: "🧫",
-      search: "sputum afb tuberculosis tb"
-    },
-    {
-      name: "Semen Analysis",
-      price: "₹300",
-      image: "semen analysis laboratory microscope specimen",
-      icon: "🔬",
-      search: "semen sperm analysis"
-    },
-    {
-      name: "Stool Examination",
-      price: "₹300",
-      image: "stool examination specimen container laboratory",
-      icon: "🧫",
-      search: "stool faeces examination"
-    },
-    {
-      name: "Urine Pregnancy",
-      price: "₹100",
-      image: "urine pregnancy test kit laboratory",
-      icon: "🧪",
-      search: "pregnancy urine hcg"
-    },
-    {
-      name: "Lipid Profile",
-      price: "₹500",
-      image: "lipid profile cholesterol triglycerides blood test",
-      icon: "🩸",
-      search: "lipid cholesterol triglycerides"
-    },
-    {
-      name: "Renal Profile",
-      price: "₹500",
-      image: "renal kidney function laboratory blood test",
-      icon: "🧪",
-      search: "renal kidney function"
-    },
-    {
-      name: "Liver Function",
-      price: "₹600",
-      image: "liver function test laboratory blood sample",
-      icon: "🧪",
-      search: "lft liver function"
-    },
-    {
-      name: "S. Electrolytes (Dry/Wet)",
-      price: "₹600 / ₹500",
-      image: "serum electrolytes sodium potassium laboratory test",
-      icon: "🧪",
-      search: "electrolytes sodium potassium dry wet"
-    },
-    {
-      name: "Glucose Tolerance Test (GTT)",
-      price: "₹400",
-      image: "glucose tolerance test glucose drink laboratory",
-      icon: "🩸",
-      search: "gtt glucose tolerance diabetes"
-    },
-    {
-      name: "Glucose Challenge Test (GCT)",
-      price: "₹200",
-      image: "glucose challenge test laboratory glucose drink",
-      icon: "🩸",
-      search: "gct glucose challenge pregnancy"
-    },
-    {
-      name: "CK-MB",
-      price: "₹500",
-      image: "ck mb cardiac enzyme laboratory blood test",
-      icon: "🧪",
-      search: "ckmb cardiac heart enzyme"
-    },
-    {
-      name: "CPK",
-      price: "₹500",
-      image: "creatine phosphokinase cpk laboratory blood test",
-      icon: "🧪",
-      search: "cpk creatine kinase muscle enzyme"
-    },
-    {
-      name: "Chikungunya",
-      price: "₹600",
-      image: "chikungunya diagnostic laboratory blood test",
-      icon: "🦟",
-      search: "chikungunya virus"
-    },
-    {
-      name: "Trop T",
-      price: "₹1200",
-      image: "troponin t cardiac marker laboratory blood test",
-      icon: "❤️",
-      search: "troponin t heart cardiac"
-    }
+    
+  {
+    name: "Haemogram",
+    price: "₹200",
+    image: "complete blood count haemogram blood cells laboratory",
+    icon: "🩸",
+    search: "blood count cbc complete blood test"
+  },
+  {
+    name: "Haemoglobin",
+    price: "₹100",
+    image: "haemoglobin red blood cells microscope",
+    icon: "🔴",
+    search: "hb hemoglobin blood"
+  },
+  {
+    name: "ESR",
+    price: "₹100",
+    image: "erythrocyte sedimentation rate blood tube",
+    icon: "🧪",
+    search: "esr sedimentation rate inflammation"
+  },
+  {
+    name: "PBS for Malarial Parasites",
+    price: "₹100",
+    image: "malaria parasite peripheral blood smear microscope",
+    icon: "🔬",
+    search: "pbs malaria parasite blood smear"
+  },
+  {
+    name: "Malarial Parasites (Rapid)",
+    price: "₹150",
+    image: "malaria rapid diagnostic test cassette",
+    icon: "🦟",
+    search: "malaria rapid test parasite"
+  },
+  {
+    name: "Blood Group & RH",
+    price: "₹50",
+    image: "blood group rh factor testing laboratory",
+    icon: "🩸",
+    search: "blood group rh positive negative"
+  },
+  {
+    name: "BT-CT",
+    price: "₹100",
+    image: "bleeding time clotting time laboratory test",
+    icon: "⏱️",
+    search: "bt ct bleeding clotting time"
+  },
+  {
+    name: "Glycosylated Haemoglobin (HbA1c)",
+    price: "₹500",
+    image: "hba1c diabetes blood glucose laboratory testing",
+    icon: "💉",
+    search: "hba1c glycated hemoglobin diabetes sugar"
+  },
+  {
+    name: "Plasma Prothrombin Time",
+    price: "₹200",
+    image: "prothrombin time coagulation plasma laboratory",
+    icon: "⏳",
+    search: "pt plasma coagulation clotting"
+  },
+  {
+    name: "HIV",
+    price: "₹300",
+    image: "hiv screening laboratory diagnostic test kit",
+    icon: "🧬",
+    search: "hiv screening blood test"
+  },
+  {
+    name: "HBsAg",
+    price: "₹200",
+    image: "hepatitis b hbsag diagnostic laboratory test",
+    icon: "🦠",
+    search: "hbsag hepatitis b antigen"
+  },
+  {
+    name: "V.D.R.L.",
+    price: "₹150",
+    image: "vdrl syphilis serology laboratory testing",
+    icon: "🧫",
+    search: "vdrl syphilis screening blood"
+  },
+  {
+    name: "C-Reactive Protein (CRP)",
+    price: "₹400",
+    image: "c reactive protein crp inflammation blood test",
+    icon: "🩺",
+    search: "crp inflammation protein"
+  },
+  {
+    name: "Rheumatoid Factor (R.A. Test) Quantitative",
+    price: "₹400",
+    image: "rheumatoid factor arthritis laboratory blood test",
+    icon: "🦴",
+    search: "ra rheumatoid factor arthritis quantitative"
+  },
+  {
+    name: "A.S.O. Test Quantitative",
+    price: "₹500",
+    image: "antistreptolysin o aso laboratory test",
+    icon: "🔍",
+    search: "aso antistreptolysin o quantitative"
+  },
+  {
+    name: "Widal Test",
+    price: "₹100",
+    image: "widal typhoid agglutination laboratory test",
+    icon: "🧫",
+    search: "widal typhoid fever"
+  },
+  {
+    name: "Weil Felix",
+    price: "₹300",
+    image: "weil felix rickettsial serology laboratory",
+    icon: "🦠",
+    search: "weil felix rickettsial infection"
+  },
+  {
+    name: "Mantoux Test",
+    price: "₹250",
+    image: "mantoux tuberculin skin test forearm",
+    icon: "💉",
+    search: "mantoux tuberculosis tb skin test"
+  },
+  {
+    name: "Dengue Test",
+    price: "₹600",
+    image: "dengue virus mosquito diagnostic testing",
+    icon: "🦟",
+    search: "dengue ns1 igm blood test"
+  },
+  {
+    name: "BSL (R)",
+    price: "₹50",
+    image: "random blood sugar glucometer finger prick",
+    icon: "🍬",
+    search: "bsl rbs random blood sugar"
+  },
+  {
+    name: "BSL & FPP",
+    price: "₹100",
+    image: "fasting post prandial blood glucose testing",
+    icon: "🩸",
+    search: "bsl fpp fasting post prandial sugar"
+  },
+  {
+    name: "Blood Urea Level",
+    price: "₹200",
+    image: "blood urea kidney function diagnostic laboratory",
+    icon: "🫘",
+    search: "blood urea kidney function"
+  },
+  {
+    name: "Serum Creatinine",
+    price: "₹200",
+    image: "serum creatinine renal kidney function test",
+    icon: "🧬",
+    search: "creatinine kidney renal function"
+  },
+  {
+    name: "Bilirubin (T, D&I)",
+    price: "₹200",
+    image: "bilirubin total direct indirect liver function",
+    icon: "🟡",
+    search: "bilirubin total direct indirect liver"
+  },
+  {
+    name: "S.G.P.T.",
+    price: "₹200",
+    image: "sgpt alt liver enzyme diagnostic test",
+    icon: "🫀",
+    search: "sgpt alt liver enzyme"
+  },
+  {
+    name: "S.G.O.T.",
+    price: "₹200",
+    image: "sgot ast liver enzyme blood testing",
+    icon: "🧪",
+    search: "sgot ast liver enzyme"
+  },
+  {
+    name: "Calcium",
+    price: "₹200",
+    image: "calcium bone mineral medical illustration",
+    icon: "🦴",
+    search: "calcium serum bone mineral"
+  },
+  {
+    name: "Cholesterol",
+    price: "₹200",
+    image: "cholesterol lipid artery medical illustration",
+    icon: "❤️",
+    search: "cholesterol lipid blood fat"
+  },
+  {
+    name: "Total Protein (Albumin Globulin)",
+    price: "₹250",
+    image: "albumin globulin total protein laboratory analysis",
+    icon: "🥚",
+    search: "total protein albumin globulin"
+  },
+  {
+    name: "Alkaline Phosphatase",
+    price: "₹200",
+    image: "alkaline phosphatase alp liver bone enzyme test",
+    icon: "🧪",
+    search: "alp alkaline phosphatase liver bone"
+  },
+  {
+    name: "Uric Acid",
+    price: "₹200",
+    image: "uric acid gout joint medical illustration",
+    icon: "💧",
+    search: "uric acid gout joint"
+  },
+  {
+    name: "Triglycerides",
+    price: "₹200",
+    image: "triglyceride lipid molecules medical illustration",
+    icon: "🧬",
+    search: "triglycerides lipid fat blood"
+  },
+  {
+    name: "Urine Routine",
+    price: "₹100",
+    image: "urine sample specimen container urinalysis",
+    icon: "🧴",
+    search: "urine routine analysis urinalysis"
+  },
+  {
+    name: "Sputum for AFB",
+    price: "₹300",
+    image: "sputum specimen tuberculosis laboratory microscope",
+    icon: "🫁",
+    search: "sputum afb tuberculosis acid fast bacilli"
+  },
+  {
+    name: "Semen Analysis",
+    price: "₹300",
+    image: "sperm cells semen analysis microscope",
+    icon: "🔬",
+    search: "semen sperm count motility analysis"
+  },
+  {
+    name: "Stool Examination",
+    price: "₹300",
+    image: "stool specimen parasitology microscope examination",
+    icon: "🧫",
+    search: "stool examination parasites ova"
+  },
+  {
+    name: "Urine Pregnancy",
+    price: "₹100",
+    image: "urine pregnancy hcg test kit",
+    icon: "🤰",
+    search: "urine pregnancy test hcg"
+  },
+  {
+    name: "Lipid Profile",
+    price: "₹500",
+    image: "lipid profile cholesterol triglycerides medical illustration",
+    icon: "💓",
+    search: "lipid profile cholesterol triglycerides"
+  },
+  {
+    name: "Renal Profile",
+    price: "₹500",
+    image: "human kidneys renal function medical illustration",
+    icon: "🫘",
+    search: "renal profile kidney function"
+  },
+  {
+    name: "Liver Function",
+    price: "₹600",
+    image: "human liver anatomy medical illustration",
+    icon: "🫀",
+    search: "liver function lft"
+  },
+  {
+    name: "S. Electrolytes (Dry/Wet)",
+    price: "₹600 / ₹500",
+    image: "sodium potassium electrolytes medical illustration",
+    icon: "⚡",
+    search: "serum electrolytes sodium potassium dry wet"
+  },
+  {
+    name: "Glucose Tolerance Test (GTT)",
+    price: "₹400",
+    image: "glucose tolerance test oral glucose drink",
+    icon: "🥤",
+    search: "gtt glucose tolerance diabetes"
+  },
+  {
+    name: "Glucose Challenge Test (GCT)",
+    price: "₹200",
+    image: "glucose challenge test pregnancy glucose drink",
+    icon: "🧃",
+    search: "gct glucose challenge test"
+  },
+  {
+    name: "CK-MB",
+    price: "₹500",
+    image: "human heart cardiac enzyme medical illustration",
+    icon: "💓",
+    search: "ck mb cardiac heart enzyme"
+  },
+  {
+    name: "CPK",
+    price: "₹500",
+    image: "skeletal muscles creatine kinase medical illustration",
+    icon: "💪",
+    search: "cpk creatine kinase muscle enzyme"
+  },
+  {
+    name: "Chikungunya",
+    price: "₹600",
+    image: "chikungunya virus mosquito medical illustration",
+    icon: "🦟",
+    search: "chikungunya virus fever joint pain"
+  },
+  {
+    name: "Trop T",
+    price: "₹1200",
+    image: "troponin t heart cardiac marker medical illustration",
+    icon: "❤️",
+    search: "trop t troponin cardiac heart marker"
+  }
+
   ];
 
   const testGrid = document.getElementById("testGrid");

@@ -703,3 +703,31 @@ textarea {
 .back-btn:hover {
   background: #D9E8FA;
 }
+
+/* SmartLab theme override */
+body {
+  background: #EFF5FF !important;
+  color: #15395D !important;
+}
+
+.topbar {
+  background: #FFFFFF !important;
+}
+
+h1, h2, h3 {
+  color: #19436B !important;
+}
+
+.primary-btn,
+button.primary-btn {
+  background: #19436B !important;
+  color: #FFFFFF !important;
+  border-color: #19436B !important;
+}
+
+.panel,
+.stat-card,
+.action-card {
+  background-color: #FFFFFF !important;
+  border-color: #D5E2F2 !important;
+}

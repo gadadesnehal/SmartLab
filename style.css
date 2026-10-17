@@ -51,7 +51,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--blue);
+  color: var(--navy);
   font-size: 25px;
   font-weight: 800;
   line-height: 1.2;
@@ -84,7 +84,7 @@ a {
 
 .navbar nav a:hover,
 .footer-links a:hover {
-  color: var(--blue);
+  color: var(--navy);
 }
 
 .nav-actions {
@@ -148,7 +148,7 @@ a {
 }
 
 .eyebrow {
-  color: var(--blue);
+  color: var(--navy);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.7px;
@@ -273,7 +273,7 @@ a {
 
 .live-label {
   margin-left: auto;
-  color: var(--blue);
+  color: var(--navy);
   background: var(--pale);
   padding: 4px 8px;
   border-radius: 5px;
@@ -320,7 +320,7 @@ a {
 }
 
 .mini-stats strong {
-  color: var(--blue);
+  color: var(--navy);
   font-size: 18px;
 }
 
@@ -376,7 +376,7 @@ a {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  color: var(--blue);
+  color: var(--navy);
   background: var(--pale);
   border: 1px solid #d6eaff;
   border-radius: 50%;

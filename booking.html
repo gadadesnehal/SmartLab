@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,9 @@
   <link rel="stylesheet" href="dashboard.css">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -28,11 +29,28 @@
       border-bottom: 1px solid #e4eaf2;
     }
 
-    .brand { font-size: 24px; font-weight: bold; color: #2764a5; }
-    nav { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: #34465d; font-size: 14px; }
+    .brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2764a5;
+    }
 
-    select, input, button {
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #34465d;
+      font-size: 14px;
+    }
+
+    select,
+    input,
+    button {
       font: inherit;
     }
 
@@ -49,33 +67,38 @@
       padding: 0 18px;
     }
 
-    .page-heading { margin-bottom: 22px; }
-    .page-heading h1 { margin-bottom: 8px; color: #203c61; }
-    .page-heading p { color: #66758a; line-height: 1.6; }
+    .page-heading {
+      margin-bottom: 22px;
+    }
 
-  .booking-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
-  gap: 22px;
-  align-items: start;
-  width: 100%;
-}
+    .page-heading h1 {
+      margin-bottom: 8px;
+      color: #203c61;
+    }
 
-.booking-layout > section,
-.booking-layout > aside {
-  min-width: 0;
-}
+    .page-heading p {
+      color: #66758a;
+      line-height: 1.6;
+    }
 
-.booking-layout > section .card,
-.booking-layout > aside .card {
-  width: 100%;
-}
+    /* Book Test layout */
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+      gap: 22px;
+      align-items: start;
+      width: 100%;
+    }
 
-@media (max-width: 760px) {
-  .booking-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+    .booking-layout > section,
+    .booking-layout > aside {
+      min-width: 0;
+    }
+
+    .booking-layout > section .card,
+    .booking-layout > aside .card {
+      width: 100%;
+    }
 
     .card {
       background: white;
@@ -85,9 +108,16 @@
       margin-bottom: 20px;
     }
 
-    .card h2 { margin-top: 0; color: #254a78; font-size: 21px; }
+    .card h2 {
+      margin-top: 0;
+      color: #254a78;
+      font-size: 21px;
+    }
 
-    .form-group { margin-bottom: 17px; }
+    .form-group {
+      margin-bottom: 17px;
+    }
+
     .form-group label {
       display: block;
       font-weight: 600;
@@ -122,7 +152,9 @@
       cursor: pointer;
     }
 
-    .primary-btn:hover { background: #1e558e; }
+    .primary-btn:hover {
+      background: #1e558e;
+    }
 
     .summary-row {
       display: flex;
@@ -154,7 +186,11 @@
       font-size: 14px;
     }
 
-    .disclaimer { color: #68778b; font-size: 12px; line-height: 1.6; }
+    .disclaimer {
+      color: #68778b;
+      font-size: 12px;
+      line-height: 1.6;
+    }
 
     footer {
       text-align: center;
@@ -176,35 +212,22 @@
     }
 
     @media (max-width: 760px) {
-      .booking-layout { grid-template-columns: 1fr; }
-      header { align-items: flex-start; }
-      nav { width: 100%; }
-      .card { padding: 18px; }
+      .booking-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      .card {
+        padding: 18px;
+      }
     }
-    /* Fix Book Test page layout only */
-.booking-layout {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr) !important;
-  gap: 22px !important;
-  align-items: start !important;
-  width: 100%;
-}
-
-.booking-layout > section,
-.booking-layout > aside {
-  min-width: 0;
-}
-
-.booking-layout > section .card,
-.booking-layout > aside .card {
-  width: 100%;
-}
-
-@media (max-width: 760px) {
-  .booking-layout {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-}
   </style>
 </head>
 
@@ -224,9 +247,9 @@
       <option value="hi">हिन्दी</option>
     </select>
 
-   <button class="back-btn" onclick="history.back()">
-    ← Back
-</button>
+    <button class="back-btn" onclick="history.back()">
+      ← Back
+    </button>
   </nav>
 </header>
 
@@ -622,6 +645,7 @@ const bookingTime = document.getElementById("bookingTime");
 const today = new Date();
 const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
   .toISOString().split("T")[0];
+
 bookingDate.min = localToday;
 
 function updateSummary() {
@@ -631,12 +655,13 @@ function updateSummary() {
 
   document.getElementById("summaryPatient").textContent = patientName.value || "—";
   document.getElementById("summaryLab").textContent = laboratory.value || "—";
-  document.getElementById("summaryTest").textContent =
-    testSelect.value || "—";
+  document.getElementById("summaryTest").textContent = testSelect.value || "—";
+
   document.getElementById("summaryCollection").textContent =
     collectionMethod.value === "Home Collection"
       ? translations[lang].homeCollection
       : translations[lang].atLab;
+
   document.getElementById("summaryDate").textContent = bookingDate.value || "—";
   document.getElementById("summaryTime").textContent = bookingTime.value || "—";
   document.getElementById("summaryPrice").textContent = "₹" + price;
@@ -644,14 +669,20 @@ function updateSummary() {
 
 function updateAddressVisibility() {
   const homeCollection = collectionMethod.value === "Home Collection";
+
   addressGroup.hidden = !homeCollection;
   address.required = homeCollection;
+
   updateSummary();
 }
 
 [
-  patientName, laboratory, testSelect, collectionMethod,
-  bookingDate, bookingTime
+  patientName,
+  laboratory,
+  testSelect,
+  collectionMethod,
+  bookingDate,
+  bookingTime
 ].forEach(element => {
   element.addEventListener("input", updateSummary);
   element.addEventListener("change", updateSummary);
@@ -659,6 +690,7 @@ function updateAddressVisibility() {
 
 testSelect.addEventListener("change", updatePreparation);
 collectionMethod.addEventListener("change", updateAddressVisibility);
+
 languageSelect.addEventListener("change", () => {
   applyBookingLanguage(languageSelect.value);
   updateSummary();
@@ -668,6 +700,7 @@ form.addEventListener("submit", event => {
   event.preventDefault();
 
   const lang = languageSelect.value;
+
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
@@ -691,22 +724,37 @@ form.addEventListener("submit", event => {
   };
 
   // Demo data is stored only in this browser.
-  const bookings = JSON.parse(localStorage.getItem("smartLabBookings") || "[]");
+  const bookings = JSON.parse(
+    localStorage.getItem("smartLabBookings") || "[]"
+  );
+
   bookings.push(booking);
-  localStorage.setItem("smartLabBookings", JSON.stringify(bookings));
+
+  localStorage.setItem(
+    "smartLabBookings",
+    JSON.stringify(bookings)
+  );
 
   const notifications = JSON.parse(
     localStorage.getItem("smartLabNotifications") || "[]"
   );
+
   notifications.push({
     message: "New demo booking: " + booking.test,
     bookingId: booking.id,
     createdAt: booking.createdAt
   });
-  localStorage.setItem("smartLabNotifications", JSON.stringify(notifications));
+
+  localStorage.setItem(
+    "smartLabNotifications",
+    JSON.stringify(notifications)
+  );
 
   const notice = document.getElementById("successNotice");
-  notice.textContent = translations[lang].success + " Booking ID: " + booking.id;
+
+  notice.textContent =
+    translations[lang].success + " Booking ID: " + booking.id;
+
   notice.style.display = "block";
 
   updateSummary();
@@ -718,14 +766,18 @@ const requestedTest = params.get("test");
 
 if (requestedTest) {
   const matchingOption = Array.from(testSelect.options)
-    .find(option => option.value.toLowerCase() === requestedTest.toLowerCase());
+    .find(option =>
+      option.value.toLowerCase() === requestedTest.toLowerCase()
+    );
 
   if (matchingOption) {
     testSelect.value = matchingOption.value;
   }
 }
 
-const savedLanguage = localStorage.getItem("smartlab-language") || "en";
+const savedLanguage =
+  localStorage.getItem("smartlab-language") || "en";
+
 applyBookingLanguage(savedLanguage);
 updateAddressVisibility();
 updatePreparation();

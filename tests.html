@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Popular Tests | SmartLab</title>
+  <title>All Laboratory Tests | SmartLab</title>
 
   <style>
     * {
@@ -57,6 +56,16 @@
       color: #2874d0;
     }
 
+    .back-navigation button {
+      background: #eaf2fb;
+      color: #173f6b;
+      border: 1px solid #d3e1f1;
+      border-radius: 22px;
+      padding: 9px 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     .blue-bar {
       background: #153e68;
       color: white;
@@ -72,8 +81,14 @@
 
     .heading {
       font-size: 30px;
-      margin-bottom: 22px;
+      margin-bottom: 10px;
       color: #183b60;
+    }
+
+    .intro {
+      color: #61758a;
+      margin-bottom: 22px;
+      line-height: 1.5;
     }
 
     .search-box {
@@ -98,13 +113,13 @@
       background: white;
       border: 1px solid #edf1f6;
       border-radius: 18px;
-      padding: 20px 12px 16px;
+      overflow: hidden;
       text-align: center;
       box-shadow: 0 3px 8px rgba(30, 61, 94, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 235px;
+      min-height: 300px;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -113,32 +128,66 @@
       box-shadow: 0 7px 17px rgba(30, 61, 94, 0.13);
     }
 
-    .test-icon {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
+    .test-image-wrap {
+      width: 100%;
+      height: 125px;
       background: #e1eaf4;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .test-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-size: 43px;
+      color: #2e659e;
+      background: linear-gradient(135deg, #e8f2ff, #d4e5f8);
+    }
+
+    .test-card-content {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 12px 16px;
+    }
+
+    .test-number {
+      color: #6481a0;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
     }
 
     .test-card h3 {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.4;
       min-height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-wrap: anywhere;
     }
 
     .price {
       font-size: 20px;
       font-weight: bold;
       color: #173653;
-      margin: 8px 0 14px;
+      margin: 9px 0 14px;
     }
 
     .book-btn {
@@ -153,8 +202,6 @@
       padding: 11px 8px;
       font-size: 14px;
       font-weight: bold;
-      border: none;
-      cursor: pointer;
     }
 
     .book-btn:hover {
@@ -174,9 +221,16 @@
       color: #667b91;
       font-size: 13px;
       border-top: 1px solid #dce6f2;
+      line-height: 1.6;
     }
 
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
+      .test-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 850px) {
       .test-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -204,12 +258,16 @@
         gap: 12px;
       }
 
-      .test-card {
-        padding: 17px 9px;
+      .test-card-content {
+        padding: 14px 9px;
       }
 
       .test-card h3 {
         font-size: 13px;
+      }
+
+      .test-image-wrap {
+        height: 105px;
       }
     }
   </style>
@@ -222,15 +280,16 @@
 
     <nav>
       <a href="index.html">Home</a>
-      <a href="tests.html">Popular Tests</a>
+      <a href="tests.html">All Tests</a>
       <a href="booking.html">Book a Test</a>
       <a href="patient-dashboard.html">My Bookings</a>
     </nav>
+
     <div class="back-navigation">
-  <button type="button" onclick="history.back()">
-    &#8592; Back
-  </button>
-</div>
+      <button type="button" onclick="history.back()">
+        &#8592; Back
+      </button>
+    </div>
   </header>
 
   <div class="blue-bar">
@@ -240,7 +299,11 @@
   </div>
 
   <main>
-    <h1 class="heading">Popular Tests</h1>
+    <h1 class="heading">All Laboratory Tests</h1>
+
+    <p class="intro">
+      Explore all 47 tests, check their prices, and book your required test.
+    </p>
 
     <input
       type="search"
@@ -251,42 +314,7 @@
     >
 
     <div class="test-grid" id="testGrid">
-
-      <article class="test-card" data-search="cbc complete blood count blood">
-        <div class="test-icon">🩸</div>
-        <h3>Complete Blood Count (CBC)</h3>
-        <p class="price">₹450</p>
-        <a class="book-btn" href="booking.html?test=CBC">Book Now</a>
-      </article>
-
-      <article class="test-card" data-search="blood glucose diabetes sugar">
-        <div class="test-icon">🧪</div>
-        <h3>Blood Glucose</h3>
-        <p class="price">₹200</p>
-        <a class="book-btn" href="booking.html?test=Blood%20Glucose">Book Now</a>
-      </article>
-
-      <article class="test-card" data-search="lipid profile cholesterol">
-        <div class="test-icon">❤️</div>
-        <h3>Lipid Profile</h3>
-        <p class="price">₹700</p>
-        <a class="book-btn" href="booking.html">Book Now</a>
-      </article>
-
-      <article class="test-card" data-search="thyroid profile tsh thyroid">
-        <div class="test-icon">🔬</div>
-        <h3>Thyroid Profile</h3>
-        <p class="price">₹600</p>
-        <a class="book-btn" href="booking.html?test=Lipid%20Profile">Book Now</a>
-      </article>
-
-      <article class="test-card" data-search="vitamin d vitamin deficiency">
-        <div class="test-icon">☀️</div>
-        <h3>Vitamin D</h3>
-        <p class="price">₹900</p>
-        <a class="book-btn" href="booking.html?test=Vitamin%20D">Book Now</a>
-      </article>
-
+      <!-- Part 2 madhye 47 test cards JavaScript ne add hotil -->
     </div>
 
     <p id="noResults" class="no-results">
@@ -295,35 +323,441 @@
   </main>
 
   <footer>
-    SmartLab Demo Website | Test prices are sample prices and are not verified.
-    Consult your healthcare professional for medical advice.
+    SmartLab Demo Website | Prices are based on the supplied list and are not independently verified.
+    <br>
+    Consult a qualified healthcare professional for medical advice.
   </footer>
 
-  <script>
-    const searchInput = document.getElementById("testSearch");
-    const cards = document.querySelectorAll(".test-card");
-    const noResults = document.getElementById("noResults");
-
-    searchInput.addEventListener("input", function () {
-      const query = searchInput.value.trim().toLowerCase();
-      let visibleCount = 0;
-
-      cards.forEach(function (card) {
-        const searchableText =
-          card.innerText + " " + card.dataset.search;
-
-        const matches = searchableText.toLowerCase().includes(query);
-
-        card.style.display = matches ? "flex" : "none";
-
-        if (matches) {
-          visibleCount++;
-        }
-      });
-
-      noResults.style.display = visibleCount === 0 ? "block" : "none";
-    });
-  </script>
+  <!-- PART 2 CHA SCRIPT YA LINE KHALI ADD KARAYCHA -->
 
 </body>
 </html>
+<script>
+  const tests = [
+    {
+      name: "Haemogram",
+      price: "₹200",
+      image: "blood sample laboratory haemogram",
+      icon: "🩸",
+      search: "blood count complete blood test"
+    },
+    {
+      name: "Haemoglobin",
+      price: "₹100",
+      image: "haemoglobin red blood cells microscope",
+      icon: "🩸",
+      search: "hb hemoglobin blood"
+    },
+    {
+      name: "ESR",
+      price: "₹100",
+      image: "erythrocyte sedimentation rate blood test tube",
+      icon: "🧪",
+      search: "erythrocyte sedimentation rate"
+    },
+    {
+      name: "PBS for Malarial Parasites",
+      price: "₹100",
+      image: "malaria parasite blood smear microscope",
+      icon: "🔬",
+      search: "pbs malaria parasite peripheral blood smear"
+    },
+    {
+      name: "Malarial Parasites (Rapid)",
+      price: "₹150",
+      image: "malaria rapid diagnostic test kit",
+      icon: "🧪",
+      search: "malaria rapid test"
+    },
+    {
+      name: "Blood Group & RH",
+      price: "₹50",
+      image: "blood group testing laboratory blood samples",
+      icon: "🩸",
+      search: "blood group rh factor"
+    },
+    {
+      name: "BT-CT",
+      price: "₹100",
+      image: "blood clotting time laboratory test",
+      icon: "🧪",
+      search: "bleeding time clotting time"
+    },
+    {
+      name: "Glycosylated Haemoglobin (HbA1c)",
+      price: "₹500",
+      image: "hba1c diabetes blood test laboratory",
+      icon: "🩸",
+      search: "glycated hemoglobin diabetes"
+    },
+    {
+      name: "Plasma Prothrombin Time",
+      price: "₹200",
+      image: "coagulation prothrombin time laboratory blood test",
+      icon: "🧪",
+      search: "pt clotting coagulation"
+    },
+    {
+      name: "HIV",
+      price: "₹300",
+      image: "hiv laboratory blood test sample",
+      icon: "🧪",
+      search: "hiv screening blood"
+    },
+    {
+      name: "HBsAg",
+      price: "₹200",
+      image: "hepatitis b laboratory blood test",
+      icon: "🧪",
+      search: "hepatitis b surface antigen"
+    },
+    {
+      name: "V.D.R.L.",
+      price: "₹150",
+      image: "vdrl serology laboratory blood sample",
+      icon: "🧪",
+      search: "vdrl syphilis screening"
+    },
+    {
+      name: "C-Reactive Protein (CRP)",
+      price: "₹400",
+      image: "c reactive protein crp laboratory blood test",
+      icon: "🩸",
+      search: "inflammation crp"
+    },
+    {
+      name: "Rheumatoid Factor (R.A. Test) Quantitative",
+      price: "₹400",
+      image: "rheumatoid factor laboratory blood test",
+      icon: "🧪",
+      search: "ra rheumatoid arthritis quantitative"
+    },
+    {
+      name: "A.S.O. Test Quantitative",
+      price: "₹500",
+      image: "aso antistreptolysin o laboratory test",
+      icon: "🧪",
+      search: "aso antistreptolysin quantitative"
+    },
+    {
+      name: "Widal Test",
+      price: "₹100",
+      image: "widal test typhoid laboratory tubes",
+      icon: "🧪",
+      search: "typhoid widal"
+    },
+    {
+      name: "Weil Felix",
+      price: "₹300",
+      image: "weil felix serology laboratory test",
+      icon: "🔬",
+      search: "weil felix rickettsial"
+    },
+    {
+      name: "Mantoux Test",
+      price: "₹250",
+      image: "mantoux tuberculin skin test arm",
+      icon: "🩺",
+      search: "tuberculosis tb skin test"
+    },
+    {
+      name: "Dengue Test",
+      price: "₹600",
+      image: "dengue diagnostic laboratory blood test",
+      icon: "🦟",
+      search: "dengue ns1 igm"
+    },
+    {
+      name: "BSL (R)",
+      price: "₹50",
+      image: "random blood sugar glucose testing glucometer",
+      icon: "🩸",
+      search: "random blood sugar rbs"
+    },
+    {
+      name: "BSL & FPP",
+      price: "₹100",
+      image: "blood sugar glucose test laboratory",
+      icon: "🩸",
+      search: "blood sugar fpp post prandial"
+    },
+    {
+      name: "Blood Urea Level",
+      price: "₹200",
+      image: "blood urea kidney function laboratory test",
+      icon: "🧪",
+      search: "urea kidney"
+    },
+    {
+      name: "Serum Creatinine",
+      price: "₹200",
+      image: "serum creatinine kidney function blood test",
+      icon: "🧪",
+      search: "creatinine renal kidney function"
+    },
+    {
+      name: "Bilirubin (T, D&I)",
+      price: "₹200",
+      image: "bilirubin liver function blood sample test",
+      icon: "🧪",
+      search: "total direct indirect bilirubin"
+    },
+    {
+      name: "S.G.P.T.",
+      price: "₹200",
+      image: "sgpt alt liver enzyme laboratory blood test",
+      icon: "🧪",
+      search: "sgpt alt liver"
+    },
+    {
+      name: "S.G.O.T.",
+      price: "₹200",
+      image: "sgot ast liver enzyme laboratory blood test",
+      icon: "🧪",
+      search: "sgot ast liver"
+    },
+    {
+      name: "Calcium",
+      price: "₹200",
+      image: "serum calcium laboratory blood sample test",
+      icon: "🧪",
+      search: "calcium mineral blood"
+    },
+    {
+      name: "Cholesterol",
+      price: "₹200",
+      image: "cholesterol blood test laboratory sample",
+      icon: "🩸",
+      search: "cholesterol lipid fat"
+    },
+    {
+      name: "Total Protein (Albumin Globulin)",
+      price: "₹250",
+      image: "total protein albumin globulin laboratory blood test",
+      icon: "🧪",
+      search: "protein albumin globulin"
+    },
+    {
+      name: "Alkaline Phosphatase",
+      price: "₹200",
+      image: "alkaline phosphatase alp liver enzyme blood test",
+      icon: "🧪",
+      search: "alp enzyme liver bone"
+    },
+    {
+      name: "Uric Acid",
+      price: "₹200",
+      image: "uric acid laboratory blood test sample",
+      icon: "🧪",
+      search: "uric acid gout"
+    },
+    {
+      name: "Triglycerides",
+      price: "₹200",
+      image: "triglyceride lipid blood test laboratory",
+      icon: "🩸",
+      search: "triglycerides fats lipid"
+    },
+    {
+      name: "Urine Routine",
+      price: "₹100",
+      image: "urine routine examination specimen container laboratory",
+      icon: "🧪",
+      search: "urine analysis routine"
+    },
+    {
+      name: "Sputum for AFB",
+      price: "₹300",
+      image: "sputum specimen container tuberculosis laboratory",
+      icon: "🧫",
+      search: "sputum afb tuberculosis tb"
+    },
+    {
+      name: "Semen Analysis",
+      price: "₹300",
+      image: "semen analysis laboratory microscope specimen",
+      icon: "🔬",
+      search: "semen sperm analysis"
+    },
+    {
+      name: "Stool Examination",
+      price: "₹300",
+      image: "stool examination specimen container laboratory",
+      icon: "🧫",
+      search: "stool faeces examination"
+    },
+    {
+      name: "Urine Pregnancy",
+      price: "₹100",
+      image: "urine pregnancy test kit laboratory",
+      icon: "🧪",
+      search: "pregnancy urine hcg"
+    },
+    {
+      name: "Lipid Profile",
+      price: "₹500",
+      image: "lipid profile cholesterol triglycerides blood test",
+      icon: "🩸",
+      search: "lipid cholesterol triglycerides"
+    },
+    {
+      name: "Renal Profile",
+      price: "₹500",
+      image: "renal kidney function laboratory blood test",
+      icon: "🧪",
+      search: "renal kidney function"
+    },
+    {
+      name: "Liver Function",
+      price: "₹600",
+      image: "liver function test laboratory blood sample",
+      icon: "🧪",
+      search: "lft liver function"
+    },
+    {
+      name: "S. Electrolytes (Dry/Wet)",
+      price: "₹600 / ₹500",
+      image: "serum electrolytes sodium potassium laboratory test",
+      icon: "🧪",
+      search: "electrolytes sodium potassium dry wet"
+    },
+    {
+      name: "Glucose Tolerance Test (GTT)",
+      price: "₹400",
+      image: "glucose tolerance test glucose drink laboratory",
+      icon: "🩸",
+      search: "gtt glucose tolerance diabetes"
+    },
+    {
+      name: "Glucose Challenge Test (GCT)",
+      price: "₹200",
+      image: "glucose challenge test laboratory glucose drink",
+      icon: "🩸",
+      search: "gct glucose challenge pregnancy"
+    },
+    {
+      name: "CK-MB",
+      price: "₹500",
+      image: "ck mb cardiac enzyme laboratory blood test",
+      icon: "🧪",
+      search: "ckmb cardiac heart enzyme"
+    },
+    {
+      name: "CPK",
+      price: "₹500",
+      image: "creatine phosphokinase cpk laboratory blood test",
+      icon: "🧪",
+      search: "cpk creatine kinase muscle enzyme"
+    },
+    {
+      name: "Chikungunya",
+      price: "₹600",
+      image: "chikungunya diagnostic laboratory blood test",
+      icon: "🦟",
+      search: "chikungunya virus"
+    },
+    {
+      name: "Trop T",
+      price: "₹1200",
+      image: "troponin t cardiac marker laboratory blood test",
+      icon: "❤️",
+      search: "troponin t heart cardiac"
+    }
+  ];
+
+  const testGrid = document.getElementById("testGrid");
+  const searchInput = document.getElementById("testSearch");
+  const noResults = document.getElementById("noResults");
+
+  function createTestCard(test, index) {
+    const card = document.createElement("article");
+    card.className = "test-card";
+
+    card.dataset.search =
+      (test.name + " " + test.search + " " + test.price).toLowerCase();
+
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "test-image-wrap";
+
+    const img = document.createElement("img");
+    img.className = "test-image";
+    img.alt = test.name + " related laboratory image";
+    img.loading = "lazy";
+
+    // Pratyek test sathi vegle related keywords vaprun image load hote.
+    img.src =
+      "https://loremflickr.com/500/320/" +
+      encodeURIComponent(test.image);
+
+    const fallback = document.createElement("div");
+    fallback.className = "image-fallback";
+    fallback.textContent = test.icon;
+    fallback.setAttribute("aria-label", test.name + " icon");
+
+    img.onerror = function () {
+      img.style.display = "none";
+      fallback.style.display = "flex";
+    };
+
+    imageWrap.appendChild(img);
+    imageWrap.appendChild(fallback);
+
+    const content = document.createElement("div");
+    content.className = "test-card-content";
+
+    const number = document.createElement("p");
+    number.className = "test-number";
+    number.textContent = "TEST " + String(index + 1).padStart(2, "0");
+
+    const title = document.createElement("h3");
+    title.textContent = test.name;
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = test.price;
+
+    const bookButton = document.createElement("a");
+    bookButton.className = "book-btn";
+    bookButton.textContent = "Book Now";
+    bookButton.href =
+      "booking.html?test=" + encodeURIComponent(test.name);
+
+    content.appendChild(number);
+    content.appendChild(title);
+    content.appendChild(price);
+    content.appendChild(bookButton);
+
+    card.appendChild(imageWrap);
+    card.appendChild(content);
+
+    return card;
+  }
+
+  function displayTests(testList) {
+    testGrid.innerHTML = "";
+
+    testList.forEach(function (test) {
+      const originalIndex = tests.indexOf(test);
+      testGrid.appendChild(createTestCard(test, originalIndex));
+    });
+
+    noResults.style.display =
+      testList.length === 0 ? "block" : "none";
+  }
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.trim().toLowerCase();
+
+    const filteredTests = tests.filter(function (test) {
+      const searchableText =
+        test.name + " " + test.search + " " + test.price;
+
+      return searchableText.toLowerCase().includes(query);
+    });
+
+    displayTests(filteredTests);
+  });
+
+  // Page open zalyavar sagle 47 tests display hotil.
+  displayTests(tests);
+</script>

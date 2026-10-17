@@ -929,3 +929,43 @@ footer {
   position: static;
   margin: 0;
 }
+/* Dark navy blue theme for Index page */
+
+:root {
+  --primary: #0B1F3A;
+  --primary-color: #0B1F3A;
+  --navy-blue: #0B1F3A;
+}
+
+.navbar .logo,
+.navbar .logo span,
+.navbar nav a,
+.hero h1,
+.hero h1 span,
+.eyebrow,
+.section-heading h2,
+.owner-banner h2,
+.benefits h2,
+.lab-info h4,
+.step h3,
+.panel-heading h3,
+.feature-icon,
+.step-icon,
+.benefit-grid article > span {
+  color: #0B1F3A !important;
+}
+
+.btn.primary {
+  background-color: #0B1F3A !important;
+  border-color: #0B1F3A !important;
+  color: #FFFFFF !important;
+}
+
+.btn.primary:hover {
+  background-color: #17365C !important;
+}
+
+.btn.outline {
+  color: #0B1F3A !important;
+  border-color: #0B1F3A !important;
+}

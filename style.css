@@ -352,8 +352,8 @@ a {
 }
 
 .card-two {
-  top: 30px;
-   left: 0;
+  position: static;
+  margin-top: 20px;
 }
 
 .quick-features {

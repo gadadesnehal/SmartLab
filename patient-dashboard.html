@@ -11,195 +11,429 @@
 
 <header class="topbar">
   <a href="index.html" class="brand"><span>+</span> SmartLab</a>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="tests.html">Tests</a>
-    <a href="booking.html">Book Test</a>
+    <a href="index.html" data-i18n="home">Home</a>
+    <a href="tests.html" data-i18n="tests">Tests</a>
+    <a href="booking.html" data-i18n="bookTest">Book Test</a>
   </nav>
-  <button class="outline-btn" onclick="showMessage('This is a demo profile.')">
+
+  <select id="languageSelect" aria-label="Select language">
+    <option value="en">English</option>
+    <option value="mr">मराठी</option>
+    <option value="hi">हिंदी</option>
+  </select>
+
+  <button class="outline-btn" onclick="showMessage('This is a demo profile.')"
+    data-i18n="myProfile">
     My Profile
   </button>
-  <button type="button" onclick="history.back()">
-  ← Back
-</button>
+
+  <button type="button" onclick="history.back()" data-i18n="back">
+    ← Back
+  </button>
 </header>
 
 <main class="page">
+
   <section class="welcome">
     <div>
-      <p class="eyebrow">PATIENT PORTAL</p>
-      <h1>Welcome back, Patient!</h1>
-      <p>Manage your bookings, test status and reports in one place.</p>
+      <p class="eyebrow" data-i18n="patientPortal">PATIENT PORTAL</p>
+      <h1 data-i18n="welcome">Welcome back, Patient!</h1>
+      <p data-i18n="manageBookings">
+        Manage your bookings, test status and reports in one place.
+      </p>
     </div>
-    <a class="primary-btn" href="booking.html">+ Book a Test</a>
+    <a class="primary-btn" href="booking.html" data-i18n="bookTestButton">+ Book a Test</a>
   </section>
 
   <section class="stats">
     <article class="stat-card">
       <div class="stat-icon">▦</div>
-      <p>Total Bookings</p>
+      <p data-i18n="totalBookings">Total Bookings</p>
       <h2 id="totalBookings">2</h2>
-      <small>Your demo bookings</small>
+      <small data-i18n="demoBookings">Your demo bookings</small>
     </article>
+
     <article class="stat-card">
       <div class="stat-icon">◷</div>
-      <p>Pending Tests</p>
+      <p data-i18n="pendingTests">Pending Tests</p>
       <h2 id="pendingTests">1</h2>
-      <small>Tests in progress</small>
+      <small data-i18n="testsProgress">Tests in progress</small>
     </article>
+
     <article class="stat-card">
       <div class="stat-icon">✓</div>
-      <p>Reports Ready</p>
+      <p data-i18n="reportsReady">Reports Ready</p>
       <h2 id="readyReports">1</h2>
-      <small>Available in demo</small>
+      <small data-i18n="availableDemo">Available in demo</small>
     </article>
   </section>
 
-  
   <section class="panel">
     <div class="section-heading">
       <div>
-        <h2>Notifications</h2>
-        <p>Updates about your test bookings.</p>
+        <h2 data-i18n="notifications">Notifications</h2>
+        <p data-i18n="bookingUpdates">Updates about your test bookings.</p>
       </div>
     </div>
 
     <div id="patientNotifications">
-      <p>No new notifications.</p>
+      <p data-i18n="noNotifications">No new notifications.</p>
     </div>
   </section>
-
 
   <section class="panel">
     <div class="section-heading">
       <div>
-        <h2>My Test Bookings</h2>
-        <p>Check the status of your scheduled tests.</p>
+        <h2 data-i18n="myBookings">My Test Bookings</h2>
+        <p data-i18n="checkStatus">Check the status of your scheduled tests.</p>
       </div>
-      <a href="booking.html" class="text-link">Book another test →</a>
+      <a href="booking.html" class="text-link" data-i18n="bookAnother">
+        Book another test →
+      </a>
     </div>
 
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th>Test Name</th>
-        <th>Laboratory</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Status</th>
-        <th>Action</th>
-        <th>Payment Status</th>
-        <th>Receipt</th>
-      </tr>
-    </thead>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="testName">Test Name</th>
+            <th data-i18n="laboratory">Laboratory</th>
+            <th data-i18n="date">Date</th>
+            <th data-i18n="amount">Amount</th>
+            <th data-i18n="status">Status</th>
+            <th data-i18n="action">Action</th>
+            <th data-i18n="paymentStatus">Payment Status</th>
+            <th data-i18n="receipt">Receipt</th>
+          </tr>
+        </thead>
 
-    <tbody id="bookingRows">
-      <tr>
-        <td colspan="5" style="text-align: center;">
-          Loading your bookings...
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+        <tbody id="bookingRows">
+          <tr>
+            <td colspan="8" style="text-align: center;" data-i18n="loadingBookings">
+              Loading your bookings...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section class="two-columns">
+
     <article class="panel">
       <div class="section-heading">
         <div>
-          <h2>My Reports</h2>
-          <p>View sample reports from this demo.</p>
+          <h2 data-i18n="myReports">My Reports</h2>
+          <p data-i18n="sampleReports">View sample reports from this demo.</p>
         </div>
       </div>
-      
-<div id="patientReports">
-  <p>Loading demo reports...</p>
-</div>
 
-<p class="note">
-  Demo only: these are report records, not real medical results.
-  The selected file itself is not uploaded or saved.
-</p>
+      <div id="patientReports">
+        <p data-i18n="loadingReports">Loading demo reports...</p>
+      </div>
 
+      <p class="note" data-i18n="reportNote">
+        Demo only: these are report records, not real medical results.
+        The selected file itself is not uploaded or saved.
+      </p>
     </article>
 
     <article class="panel">
-      <h2>Home Sample Collection</h2>
-      <p>Request a sample collection at your home.</p>
+      <h2 data-i18n="homeCollection">Home Sample Collection</h2>
+      <p data-i18n="requestCollection">
+        Request a sample collection at your home.
+      </p>
 
       <form id="collectionForm">
-        <label for="patientName">Your Name</label>
-        <input id="patientName" type="text" placeholder="Enter your name" required>
 
-        <label for="patientPhone">Phone Number</label>
-        <input id="patientPhone" type="tel" placeholder="10-digit phone number"
+        <label for="patientName" data-i18n="yourName">Your Name</label>
+        <input id="patientName" type="text"
+          placeholder="Enter your name" data-i18n-placeholder="enterName" required>
+
+        <label for="patientPhone" data-i18n="phoneNumber">Phone Number</label>
+        <input id="patientPhone" type="tel"
+          placeholder="10-digit phone number"
+          data-i18n-placeholder="phonePlaceholder"
           pattern="[0-9]{10}" required>
 
-        <label for="collectionAddress">Collection Address</label>
+        <label for="collectionAddress" data-i18n="collectionAddress">Collection Address</label>
         <textarea id="collectionAddress" rows="3"
-          placeholder="Enter your address" required></textarea>
+          placeholder="Enter your address"
+          data-i18n-placeholder="enterAddress" required></textarea>
 
-        
-<label for="collectionDate">Preferred Date</label>
-<input id="collectionDate" type="date" required>
+        <label for="collectionDate" data-i18n="preferredDate">Preferred Date</label>
+        <input id="collectionDate" type="date" required>
 
-<label for="collectionTime">Preferred Time Slot</label>
-<select id="collectionTime" required>
-  <option value="">Select a time slot</option>
-  <option value="08:00-09:00">08:00 AM – 09:00 AM</option>
-  <option value="09:00-10:00">09:00 AM – 10:00 AM</option>
-  <option value="10:00-11:00">10:00 AM – 11:00 AM</option>
-  <option value="11:00-12:00">11:00 AM – 12:00 PM</option>
-  <option value="12:00-13:00">12:00 PM – 01:00 PM</option>
-  <option value="16:00-17:00">04:00 PM – 05:00 PM</option>
-  <option value="17:00-18:00">05:00 PM – 06:00 PM</option>
-</select>
+        <label for="collectionTime" data-i18n="preferredTime">Preferred Time Slot</label>
+        <select id="collectionTime" required>
+          <option value="" data-i18n="selectTime">Select a time slot</option>
+          <option value="08:00-09:00">08:00 AM – 09:00 AM</option>
+          <option value="09:00-10:00">09:00 AM – 10:00 AM</option>
+          <option value="10:00-11:00">10:00 AM – 11:00 AM</option>
+          <option value="11:00-12:00">11:00 AM – 12:00 PM</option>
+          <option value="12:00-13:00">12:00 PM – 01:00 PM</option>
+          <option value="16:00-17:00">04:00 PM – 05:00 PM</option>
+          <option value="17:00-18:00">05:00 PM – 06:00 PM</option>
+        </select>
 
-
-        <button class="primary-btn full-btn" type="submit">
+        <button class="primary-btn full-btn" type="submit" data-i18n="requestButton">
           Request Collection
         </button>
       </form>
+
       <p id="collectionMessage" class="form-message" aria-live="polite"></p>
     </article>
+
   </section>
 
   <section class="panel quick-links">
-    <h2>Quick Actions</h2>
+    <h2 data-i18n="quickActions">Quick Actions</h2>
+
     <div class="action-grid">
       <a href="tests.html" class="action-card">
         <span>＋</span>
-        <strong>Explore Tests</strong>
-        <small>View tests and prices</small>
+        <strong data-i18n="exploreTests">Explore Tests</strong>
+        <small data-i18n="viewTestsPrices">View tests and prices</small>
       </a>
+
       <a href="booking.html" class="action-card">
         <span>▦</span>
-        <strong>Book a Test</strong>
-        <small>Choose a test and date</small>
+        <strong data-i18n="bookTest">Book a Test</strong>
+        <small data-i18n="chooseTestDate">Choose a test and date</small>
       </a>
+
       <a href="reports.html" class="action-card">
         <span>▤</span>
-        <strong>My Reports</strong>
-        <small>View demo reports</small>
+        <strong data-i18n="myReports">My Reports</strong>
+        <small data-i18n="viewDemoReports">View demo reports</small>
       </a>
     </div>
   </section>
 
   <p class="disclaimer">
-    <strong>Medical disclaimer:</strong> SmartLab provides general
-    laboratory information only. It does not replace advice from a
-    qualified healthcare professional. All bookings and reports on this
-    prototype are for demonstration purposes only.
+    <strong data-i18n="medicalDisclaimer">Medical disclaimer:</strong>
+    <span data-i18n="disclaimerText">
+      SmartLab provides general laboratory information only. It does not
+      replace advice from a qualified healthcare professional. All bookings
+      and reports on this prototype are for demonstration purposes only.
+    </span>
   </p>
+
 </main>
 
 <footer>
-  <p>© 2026 SmartLab · Demo Prototype</p>
-  <a href="index.html">Home</a>
+  <p data-i18n="copyright">© 2026 SmartLab · Demo Prototype</p>
+  <a href="index.html" data-i18n="home">Home</a>
 </footer>
+
+<script>
+const patientTranslations = {
+  en: {
+    home: "Home",
+    tests: "Tests",
+    bookTest: "Book Test",
+    myProfile: "My Profile",
+    back: "← Back",
+    patientPortal: "PATIENT PORTAL",
+    welcome: "Welcome back, Patient!",
+    manageBookings: "Manage your bookings, test status and reports in one place.",
+    bookTestButton: "+ Book a Test",
+    totalBookings: "Total Bookings",
+    demoBookings: "Your demo bookings",
+    pendingTests: "Pending Tests",
+    testsProgress: "Tests in progress",
+    reportsReady: "Reports Ready",
+    availableDemo: "Available in demo",
+    notifications: "Notifications",
+    bookingUpdates: "Updates about your test bookings.",
+    noNotifications: "No new notifications.",
+    myBookings: "My Test Bookings",
+    checkStatus: "Check the status of your scheduled tests.",
+    bookAnother: "Book another test →",
+    testName: "Test Name",
+    laboratory: "Laboratory",
+    date: "Date",
+    amount: "Amount",
+    status: "Status",
+    action: "Action",
+    paymentStatus: "Payment Status",
+    receipt: "Receipt",
+    loadingBookings: "Loading your bookings...",
+    myReports: "My Reports",
+    sampleReports: "View sample reports from this demo.",
+    loadingReports: "Loading demo reports...",
+    reportNote: "Demo only: these are report records, not real medical results. The selected file itself is not uploaded or saved.",
+    homeCollection: "Home Sample Collection",
+    requestCollection: "Request a sample collection at your home.",
+    yourName: "Your Name",
+    enterName: "Enter your name",
+    phoneNumber: "Phone Number",
+    phonePlaceholder: "10-digit phone number",
+    collectionAddress: "Collection Address",
+    enterAddress: "Enter your address",
+    preferredDate: "Preferred Date",
+    preferredTime: "Preferred Time Slot",
+    selectTime: "Select a time slot",
+    requestButton: "Request Collection",
+    quickActions: "Quick Actions",
+    exploreTests: "Explore Tests",
+    viewTestsPrices: "View tests and prices",
+    chooseTestDate: "Choose a test and date",
+    viewDemoReports: "View demo reports",
+    medicalDisclaimer: "Medical disclaimer:",
+    disclaimerText: "SmartLab provides general laboratory information only. It does not replace advice from a qualified healthcare professional. All bookings and reports on this prototype are for demonstration purposes only.",
+    copyright: "© 2026 SmartLab · Demo Prototype"
+  },
+
+  mr: {
+    home: "मुख्यपृष्ठ",
+    tests: "चाचण्या",
+    bookTest: "चाचणी बुक करा",
+    myProfile: "माझे प्रोफाइल",
+    back: "← मागे",
+    patientPortal: "रुग्ण पोर्टल",
+    welcome: "पुन्हा स्वागत आहे, रुग्ण!",
+    manageBookings: "तुमच्या बुकिंग, चाचण्यांची स्थिती आणि रिपोर्ट्स एकाच ठिकाणी व्यवस्थापित करा.",
+    bookTestButton: "+ चाचणी बुक करा",
+    totalBookings: "एकूण बुकिंग",
+    demoBookings: "तुमची डेमो बुकिंग",
+    pendingTests: "प्रलंबित चाचण्या",
+    testsProgress: "सुरू असलेल्या चाचण्या",
+    reportsReady: "रिपोर्ट्स तयार",
+    availableDemo: "डेमोमध्ये उपलब्ध",
+    notifications: "सूचना",
+    bookingUpdates: "तुमच्या चाचणी बुकिंगबद्दल अपडेट्स.",
+    noNotifications: "नवीन सूचना नाहीत.",
+    myBookings: "माझी चाचणी बुकिंग",
+    checkStatus: "तुमच्या नियोजित चाचण्यांची स्थिती तपासा.",
+    bookAnother: "आणखी एक चाचणी बुक करा →",
+    testName: "चाचणीचे नाव",
+    laboratory: "प्रयोगशाळा",
+    date: "तारीख",
+    amount: "रक्कम",
+    status: "स्थिती",
+    action: "कृती",
+    paymentStatus: "पेमेंटची स्थिती",
+    receipt: "पावती",
+    loadingBookings: "तुमची बुकिंग लोड होत आहेत...",
+    myReports: "माझे रिपोर्ट्स",
+    sampleReports: "या डेमोमधील नमुना रिपोर्ट्स पाहा.",
+    loadingReports: "डेमो रिपोर्ट्स लोड होत आहेत...",
+    reportNote: "फक्त डेमोसाठी: हे रिपोर्ट्सच्या नोंदी आहेत, खरे वैद्यकीय निकाल नाहीत. निवडलेली फाइल अपलोड किंवा सेव्ह होत नाही.",
+    homeCollection: "घरी नमुना संकलन",
+    requestCollection: "तुमच्या घरी नमुना संकलनासाठी विनंती करा.",
+    yourName: "तुमचे नाव",
+    enterName: "तुमचे नाव टाका",
+    phoneNumber: "फोन नंबर",
+    phonePlaceholder: "10 अंकी फोन नंबर",
+    collectionAddress: "नमुना संकलनाचा पत्ता",
+    enterAddress: "तुमचा पत्ता टाका",
+    preferredDate: "पसंतीची तारीख",
+    preferredTime: "पसंतीची वेळ",
+    selectTime: "वेळ निवडा",
+    requestButton: "संकलनासाठी विनंती करा",
+    quickActions: "जलद पर्याय",
+    exploreTests: "चाचण्या पाहा",
+    viewTestsPrices: "चाचण्या आणि किंमती पाहा",
+    chooseTestDate: "चाचणी आणि तारीख निवडा",
+    viewDemoReports: "डेमो रिपोर्ट्स पाहा",
+    medicalDisclaimer: "वैद्यकीय सूचना:",
+    disclaimerText: "SmartLab फक्त सामान्य प्रयोगशाळेची माहिती देते. ही माहिती पात्र आरोग्यतज्ज्ञांच्या सल्ल्याचा पर्याय नाही. या नमुना वेबसाइटवरील सर्व बुकिंग आणि रिपोर्ट्स केवळ प्रात्यक्षिकासाठी आहेत.",
+    copyright: "© 2026 SmartLab · डेमो प्रोटोटाइप"
+  },
+
+  hi: {
+    home: "होम",
+    tests: "जाँच",
+    bookTest: "जाँच बुक करें",
+    myProfile: "मेरी प्रोफ़ाइल",
+    back: "← वापस",
+    patientPortal: "मरीज़ पोर्टल",
+    welcome: "वापस स्वागत है, मरीज़!",
+    manageBookings: "अपनी बुकिंग, जाँच की स्थिति और रिपोर्ट एक ही जगह पर देखें।",
+    bookTestButton: "+ जाँच बुक करें",
+    totalBookings: "कुल बुकिंग",
+    demoBookings: "आपकी डेमो बुकिंग",
+    pendingTests: "बाकी जाँच",
+    testsProgress: "जाँच जारी है",
+    reportsReady: "रिपोर्ट तैयार",
+    availableDemo: "डेमो में उपलब्ध",
+    notifications: "सूचनाएँ",
+    bookingUpdates: "आपकी जाँच बुकिंग से जुड़े अपडेट।",
+    noNotifications: "कोई नई सूचना नहीं है।",
+    myBookings: "मेरी जाँच बुकिंग",
+    checkStatus: "अपनी निर्धारित जाँच की स्थिति देखें।",
+    bookAnother: "एक और जाँच बुक करें →",
+    testName: "जाँच का नाम",
+    laboratory: "प्रयोगशाला",
+    date: "तारीख",
+    amount: "राशि",
+    status: "स्थिति",
+    action: "कार्रवाई",
+    paymentStatus: "भुगतान की स्थिति",
+    receipt: "रसीद",
+    loadingBookings: "आपकी बुकिंग लोड हो रही हैं...",
+    myReports: "मेरी रिपोर्ट",
+    sampleReports: "इस डेमो की नमूना रिपोर्ट देखें।",
+    loadingReports: "डेमो रिपोर्ट लोड हो रही हैं...",
+    reportNote: "केवल डेमो: ये रिपोर्ट रिकॉर्ड हैं, वास्तविक मेडिकल परिणाम नहीं। चुनी गई फ़ाइल अपलोड या सेव नहीं होती।",
+    homeCollection: "घर से सैंपल कलेक्शन",
+    requestCollection: "अपने घर पर सैंपल कलेक्शन के लिए अनुरोध करें।",
+    yourName: "आपका नाम",
+    enterName: "अपना नाम लिखें",
+    phoneNumber: "फ़ोन नंबर",
+    phonePlaceholder: "10 अंकों का फ़ोन नंबर",
+    collectionAddress: "कलेक्शन का पता",
+    enterAddress: "अपना पता लिखें",
+    preferredDate: "पसंदीदा तारीख",
+    preferredTime: "पसंदीदा समय",
+    selectTime: "समय चुनें",
+    requestButton: "कलेक्शन का अनुरोध करें",
+    quickActions: "त्वरित विकल्प",
+    exploreTests: "जाँच देखें",
+    viewTestsPrices: "जाँच और कीमतें देखें",
+    chooseTestDate: "जाँच और तारीख चुनें",
+    viewDemoReports: "डेमो रिपोर्ट देखें",
+    medicalDisclaimer: "चिकित्सा संबंधी सूचना:",
+    disclaimerText: "SmartLab केवल सामान्य प्रयोगशाला संबंधी जानकारी देता है। यह योग्य स्वास्थ्य विशेषज्ञ की सलाह का विकल्प नहीं है। इस प्रोटोटाइप की सभी बुकिंग और रिपोर्ट केवल प्रदर्शन के लिए हैं।",
+    copyright: "© 2026 SmartLab · डेमो प्रोटोटाइप"
+  }
+};
+
+const languageSelect = document.getElementById("languageSelect");
+
+function changePatientLanguage(language) {
+  const selectedLanguage = patientTranslations[language] ? language : "en";
+  const dictionary = patientTranslations[selectedLanguage];
+
+  document.documentElement.lang = selectedLanguage;
+  localStorage.setItem("smartlab-language", selectedLanguage);
+
+  document.querySelectorAll("[data-i18n]").forEach(element => {
+    const key = element.dataset.i18n;
+    if (dictionary[key]) {
+      element.textContent = dictionary[key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
+    const key = element.dataset.i18nPlaceholder;
+    if (dictionary[key]) {
+      element.placeholder = dictionary[key];
+    }
+  });
+
+  languageSelect.value = selectedLanguage;
+}
+
+languageSelect.addEventListener("change", function () {
+  changePatientLanguage(this.value);
+});
+
+changePatientLanguage(localStorage.getItem("smartlab-language") || "en");
+</script>
 
 <script src="dashboard.js"></script>
 </body>

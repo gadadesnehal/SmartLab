@@ -1014,28 +1014,40 @@ window.addEventListener("storage", function (event) {
   window.updateSmartLabStatistics = updateSmartLabStatistics;
 })();
 
+
 /* SmartLab - Daily Business Report */
 (function () {
   const dateInput = document.getElementById("businessReportDate");
-
   if (!dateInput) return;
 
   function updateDailyReport() {
-    const bookings = JSON.parse(
-      localStorage.getItem("smartLabBookings") || "[]"
-    );
+    let bookings = [];
+
+    try {
+      bookings = JSON.parse(
+        localStorage.getItem("smartLabBookings") || "[]"
+      );
+
+      if (!Array.isArray(bookings)) bookings = [];
+    } catch (error) {
+      bookings = [];
+    }
 
     const selectedDate = dateInput.value;
 
     const dailyBookings = bookings.filter(function (booking) {
-      return booking.date === selectedDate &&
-             booking.status !== "Cancelled (Demo)";
+      return (
+        String(booking.date || "").slice(0, 10) === selectedDate &&
+        !String(booking.status || "").toLowerCase().includes("cancelled")
+      );
     });
 
     const uniquePatients = new Set(
-      dailyBookings.map(function (booking) {
-        return (booking.phone || booking.patient || "").trim();
-      }).filter(Boolean)
+      dailyBookings
+        .map(function (booking) {
+          return String(booking.phone || booking.patient || "").trim().toLowerCase();
+        })
+        .filter(Boolean)
     );
 
     function getAmount(value) {
@@ -1045,18 +1057,18 @@ window.addEventListener("storage", function (event) {
 
     const received = dailyBookings
       .filter(function (booking) {
-        return booking.paymentStatus === "Paid (Demo)";
+        return String(booking.paymentStatus || "").toLowerCase().includes("paid");
       })
-      .reduce(function (total, booking) {
-        return total + getAmount(booking.price);
+      .reduce(function (sum, booking) {
+        return sum + getAmount(booking.price);
       }, 0);
 
     const pending = dailyBookings
       .filter(function (booking) {
-        return booking.paymentStatus !== "Paid (Demo)";
+        return !String(booking.paymentStatus || "").toLowerCase().includes("paid");
       })
-      .reduce(function (total, booking) {
-        return total + getAmount(booking.price);
+      .reduce(function (sum, booking) {
+        return sum + getAmount(booking.price);
       }, 0);
 
     document.getElementById("dailyPatients").textContent =
@@ -1076,6 +1088,24 @@ window.addEventListener("storage", function (event) {
         ? "Showing demo bookings for " + selectedDate + "."
         : "No bookings found for this date.";
   }
+
+  const today = new Date();
+  const localToday = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+  ].join("-");
+
+  if (!dateInput.value) {
+    dateInput.value = localToday;
+  }
+
+  dateInput.addEventListener("change", updateDailyReport);
+  updateDailyReport();
+
+  window.updateDailyBusinessReport = updateDailyReport;
+})();
+
 
   // Default to today's local date.
   const today = new Date();

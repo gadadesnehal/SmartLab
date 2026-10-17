@@ -84,7 +84,7 @@ a {
 
 .navbar nav a:hover,
 .footer-links a:hover {
-  color: var(--blue-dark);
+  color: var(--blue);
 }
 
 .nav-actions {
@@ -148,14 +148,14 @@ a {
 }
 
 .eyebrow {
-  color: var(--blue-dark);
+  color: var(--blue);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.7px;
 }
 
 .hero h1 {
-  color: var(--blue-dark);
+  color: var(--blue);
   font-size: clamp(38px, 4.5vw, 58px);
   line-height: 1.12;
   margin: 18px 0;
@@ -273,7 +273,7 @@ a {
 
 .live-label {
   margin-left: auto;
-  color: var(--blue-dark);
+  color: var(--blue);
   background: var(--pale);
   padding: 4px 8px;
   border-radius: 5px;
@@ -291,7 +291,7 @@ a {
 .visual-title {
   font-size: 19px;
   font-weight: 800;
-  color: var(--blue-dark);
+  color: var(--blue);
 }
 
 .lab-illustration > p {
@@ -320,7 +320,7 @@ a {
 }
 
 .mini-stats strong {
-  color: var(--blue-dark);
+  color: var(--blue);
   font-size: 18px;
 }
 
@@ -337,7 +337,7 @@ a {
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 0 8px 25px #23456c15;
-  color: var(--blue-dark);
+  color: var(--blue);
   font-weight: 800;
 }
 

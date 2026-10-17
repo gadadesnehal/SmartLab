@@ -117,6 +117,49 @@ document.querySelectorAll(".owner-status").forEach(function (select) {
 const staffForm = document.getElementById("staffForm");
 
 function displayStaffAssignments() {
+  // Load actual saved bookings into Staff Assign and Report Upload.
+function loadBookingDropdowns() {
+  const staffBooking = document.getElementById("staffBooking");
+  const reportBooking = document.getElementById("reportBooking");
+
+  let bookings = [];
+
+  try {
+    bookings = JSON.parse(
+      localStorage.getItem("smartLabBookings") || "[]"
+    );
+
+    if (!Array.isArray(bookings)) bookings = [];
+  } catch (error) {
+    bookings = [];
+  }
+
+  [staffBooking, reportBooking].forEach(function (dropdown) {
+    if (!dropdown) return;
+
+    dropdown.replaceChildren();
+
+    const firstOption = document.createElement("option");
+    firstOption.value = "";
+    firstOption.textContent = "Select booking";
+    dropdown.appendChild(firstOption);
+
+    bookings.forEach(function (booking) {
+      if (!booking.id) return;
+
+      const option = document.createElement("option");
+      option.value = String(booking.id);
+      option.textContent =
+        booking.id + " - " +
+        (booking.patient || "Patient") + " - " +
+        (booking.test || "Test");
+
+      dropdown.appendChild(option);
+    });
+  });
+}
+
+loadBookingDropdowns();
   const list = document.getElementById("staffAssignmentList");
   if (!list) return;
 

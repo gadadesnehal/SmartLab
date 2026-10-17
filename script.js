@@ -1,4 +1,4 @@
-
+alert("JavaScript is working!");
 const translations = {
   en: {
     home: "Home",

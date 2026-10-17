@@ -173,6 +173,30 @@
       nav { width: 100%; }
       .card { padding: 18px; }
     }
+    /* Fix Book Test page layout only */
+.booking-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr) !important;
+  gap: 22px !important;
+  align-items: start !important;
+  width: 100%;
+}
+
+.booking-layout > section,
+.booking-layout > aside {
+  min-width: 0;
+}
+
+.booking-layout > section .card,
+.booking-layout > aside .card {
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .booking-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
   </style>
 </head>
 

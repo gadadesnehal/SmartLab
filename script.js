@@ -411,18 +411,5 @@ if (showLogin && showRegister && loginForm && registerForm) {
 }
 
 // Demo only: this does not create a real secure account.
-if (registerForm) {
-  registerForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    document.getElementById("registerMessage").textContent =
-      "Demo form checked. Real account registration is not connected yet.";
-  });
-}
 
-if (loginForm) {
-  loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    document.getElementById("loginMessage").textContent =
-      "Demo form checked. Real login authentication is not connected yet.";
-  });
-}
+

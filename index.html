@@ -37,8 +37,15 @@
       <option value="hi">हिंदी</option>
     </select>
 
-    <a class="btn outline" href="#login" data-translate="login">Login</a>
-    <a class="btn primary" href="#login" data-translate="register">Register</a>
+  <a class="btn outline" href="#login" data-translate="login"
+   onclick="document.getElementById('loginForm').hidden=false; document.getElementById('registerForm').hidden=true;">
+  Login
+</a>
+
+<a class="btn primary" href="#login" data-translate="register"
+   onclick="document.getElementById('loginForm').hidden=true; document.getElementById('registerForm').hidden=false;">
+  Register
+</a>
   </div>
 </header>
 

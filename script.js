@@ -392,3 +392,37 @@ if (document.readyState === "loading") {
 } else {
   initializeSmartLab();
 }
+
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
+const showLogin = document.getElementById("showLogin");
+const showRegister = document.getElementById("showRegister");
+
+if (showLogin && showRegister && loginForm && registerForm) {
+  showLogin.addEventListener("click", function () {
+    loginForm.hidden = false;
+    registerForm.hidden = true;
+  });
+
+  showRegister.addEventListener("click", function () {
+    loginForm.hidden = true;
+    registerForm.hidden = false;
+  });
+}
+
+// Demo only: this does not create a real secure account.
+if (registerForm) {
+  registerForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.getElementById("registerMessage").textContent =
+      "Demo form checked. Real account registration is not connected yet.";
+  });
+}
+
+if (loginForm) {
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    document.getElementById("loginMessage").textContent =
+      "Demo form checked. Real login authentication is not connected yet.";
+  });
+}
